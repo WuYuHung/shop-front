@@ -23,7 +23,7 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'new-arrival',
+    path: 'new-arrivals',
     component: NewArrivalsComponent
   },
   {
