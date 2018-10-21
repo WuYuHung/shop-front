@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
+  Ctrl = function($scope) {
+    $scope.skills = [];
 
+    $scope.skill = '';
+    $scope.submit = function() {
+      if (!!$scope.skill) {
+        $scope.skills.push($scope.skill);
+      }
+      $scope.skill = '';
+    };
+  };
 }
