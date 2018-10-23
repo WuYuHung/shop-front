@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Man Shose 1",
+    "cateories": "man",
+    "description": "this is man shose",
+    "price": 8787,
+    "imagepath": "1.png"
+  },
+  {
+    "name": "Man Shose 2",
+    "cateories": "man",
+    "description": "this is man shose",
+    "price": 7500,
+    "imagepath": "2.jpg"
+  },
+  {
+    "name": "Man Shose 3",
+    "cateories": "man",
+    "description": "this is man shose",
+    "price": 9800,
+    "imagepath": "3.bmp"
+  },
+  {
+    "name": "Man Shose 4",
+    "cateories": "man",
+    "description": "this is Man shose",
+    "price": 6000,
+    "imagepath": "4.png"
+  },
+  {
+    "name": "Man Shose 5",
+    "cateories": "man",
+    "description": "this is Man shose",
+    "price": 5000,
+    "imagepath": "5.png"
+  },
+  {
+    "name": "Woman Shose 1",
+    "cateories": "woman",
+    "description": "this is Woman shose",
+    "price": 8787,
+    "imagepath": "1.png"
+  },
+  {
+    "name": "Woman Shose 2",
+    "cateories": "woman",
+    "description": "this is Woman shose",
+    "price": 7500,
+    "imagepath": "2.png"
+  },
+  {
+    "name": "Woman Shose 3",
+    "cateories": "woman",
+    "description": "this is Woman shose",
+    "price": 9800,
+    "imagepath": "3.png"
+  },
+  {
+    "name": "Woman Shose 4",
+    "cateories": "woman",
+    "description": "this is Woman shose",
+    "price": 6000,
+    "imagepath": "4.png"
+  },
+  {
+    "name": "Woman Shose 5",
+    "cateories": "woman",
+    "description": "this is Woman shose",
+    "price": 5000,
+    "imagepath": "5.png"
+  },
+  {
+    "name": "Child Man Shose 1",
+    "cateories": "childman",
+    "description": "this is Child Man shose",
+    "price": 8787,
+    "imagepath": "1.png"
+  },
+  {
+    "name": "Child Man Shose 2",
+    "cateories": "childman",
+    "description": "this is Child Man shose",
+    "price": 7500,
+    "imagepath": "2.png"
+  },
+  {
+    "name": "Child Man Shose 3",
+    "cateories": "childman",
+    "description": "this is Child Man shose",
+    "price": 9800,
+    "imagepath": "3.png"
+  },
+  {
+    "name": "Child Man Shose 4",
+    "cateories": "childman",
+    "description": "this is Child Man shose",
+    "price": 6000,
+    "imagepath": "4.png"
+  },
+  {
+    "name": "Child Man Shose 5",
+    "cateories": "childman",
+    "description": "this is Man shose",
+    "price": 5000,
+    "imagepath": "5.png"
+  },
+  {
+    "name": "Child woman Shose 1",
+    "cateories": "childwoman",
+    "description": "this is Child woman shose",
+    "price": 8787,
+    "imagepath": "1.png"
+  },
+  {
+    "name": "Child woman Shose 2",
+    "cateories": "childwoman",
+    "description": "this is Child woman shose",
+    "price": 7500,
+    "imagepath": "2.png"
+  },
+  {
+    "name": "Child woman Shose 3",
+    "cateories": "childwoman",
+    "description": "this is Child woman shose",
+    "price": 9800,
+    "imagepath": "3.png"
+  },
+  {
+    "name": "Child woman Shose 4",
+    "cateories": "childwoman",
+    "description": "this is Child woman shose",
+    "price": 6000,
+    "imagepath": "4.png"
+  },
+  {
+    "name": "Child woman Shose 5",
+    "cateories": "childwoman",
+    "description": "this is Child woman shose",
+    "price": 5000,
+    "imagepath": "5.png"
+  }
+]
