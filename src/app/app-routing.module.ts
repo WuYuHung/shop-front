@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { ContactComponent } from './contact/contact.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopSingleComponent } from './shop-single/shop-single.component';
 
 
 const routes: Routes = [
@@ -21,12 +23,20 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'new-arrival',
+    path: 'new-arrivals',
     component: NewArrivalsComponent
   },
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'shop',
+    component: ShopComponent
+  },
+  {
+    path: 'shop/:cateories/:id',
+    component: ShopSingleComponent
   }
 ];
 
