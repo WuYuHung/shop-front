@@ -49,11 +49,11 @@
             <div *ngFor="let data of datas" class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shop/{{data.id}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
+                  <a href="/shopsingle/{{data.id}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
                       alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3><a href="/shop/{{data.id}}">{{data.name}}</a></h3>
+                  <h3><a href="/shopsingle/{{data.id}}">{{data.name}}</a></h3>
                   <p class="mb-0">{{data.description}}</p>
                   <p class="text-primary font-weight-bold">${{data.price}}</p>
                 </div>
@@ -84,10 +84,10 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">分類</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1"><a href="#" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/man" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/woman" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/childman" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/childwoman" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
             </ul>
           </div>
 

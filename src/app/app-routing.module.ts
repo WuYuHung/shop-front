@@ -35,8 +35,12 @@ const routes: Routes = [
     component: ShopComponent
   },
   {
-    path: 'shop/:id',
+    path: 'shopsingle/:id',
     component: ShopSingleComponent
+  },
+  {
+    path: 'shop/:cateories',
+    component: ShopComponent
   }
 ];
 
@@ -44,4 +48,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
