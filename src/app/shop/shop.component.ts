@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import jsonFile from 'src/assets/json/database.json';
 
 
@@ -9,8 +9,8 @@ import jsonFile from 'src/assets/json/database.json';
 })
 
 export class ShopComponent implements OnInit {
-
   datas: any;
+  id: number;
   constructor() { }
 
   ngOnInit() {

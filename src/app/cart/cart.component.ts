@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { $ } from 'protractor';
 import { forEach } from '@angular/router/src/utils/collection';
 import { identifierModuleUrl } from '@angular/compiler';
@@ -10,8 +10,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 
 export class CartComponent implements OnInit {
-
-  products: any;
+  public products: number;
 
   cartList = [
     { id: 1000, name: "iphone5s", quantity: 3, price: 4300 },
