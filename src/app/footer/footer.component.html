@@ -48,11 +48,12 @@
       </div>
 
       <div class="block-7">
-        <form action="#" method="post">
+        <form name="form" action="#" id="myform1" method="post" ngNativeValidate>
           <label for="email_subscribe" class="footer-heading">訂閱我們</label>
           <div class="form-group">
-            <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-            <input type="submit" class="btn btn-sm btn-primary" value="Send">
+            <input type="email" class="form-control py-4" name="email" id="email_subscribe" placeholder="Email"
+              required>
+            <button type="submit" class="btn btn-sm btn-primary" value="Send">SEND</button>
           </div>
         </form>
       </div>
@@ -65,6 +66,7 @@
         Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script>
           document.write(new Date().getFullYear());
+
         </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i>
         by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
