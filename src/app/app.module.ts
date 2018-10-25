@@ -27,7 +27,11 @@ import { ShopSingleComponent } from './shop-single/shop-single.component';
     ShopComponent,
     ShopSingleComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
