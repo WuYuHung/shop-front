@@ -52,7 +52,7 @@
                       <td>{{item.price}}</td>
                       <td>
                       <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input type="text" [(ngModel)]="item.quantity" [ngModelOptions]="{standalone: true}">
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity" [ngModelOptions]="{standalone: true}">
                       <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
                       </td>
 
