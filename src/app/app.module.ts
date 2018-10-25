@@ -35,4 +35,4 @@ import { ShopSingleComponent } from './shop-single/shop-single.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

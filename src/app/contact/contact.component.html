@@ -1,3 +1,79 @@
-<p>
-  contact works!
-</p>
+<div class="site-wrap">
+
+  <!--目前位置(可返回home)-->
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Contact</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+
+        <!--表單標題-->
+        <div class="col-md-12">
+          <h2 class="h3 mb-3 text-black store-Address">聯絡我們</h2>
+        </div>
+
+        <!--表單-->
+        <div class="col-md-7" ng-controller="MyCtrl">
+          <form name="form" id="myform" method="post" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm"
+            ngNativeValidate>
+            <div class="p-3 p-lg-5 border">
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <label for="c_fname" class="text-black store-Address">姓 <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="lastname" placeholder="姓" ngModel #mLastname required>
+                </div>
+                <div class="col-md-6">
+                  <label for="c_lname" class="text-black store-Address">名 <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="firstname" placeholder="名" ngModel #mFirstname required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <label for="c_email" class="text-black store-Address">信箱 <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" name="mail" placeholder="example123@mail.com" ngModel
+                    #mEmail required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <label for="c_subject" class="text-black store-Address">標題 </label>
+                  <input type="text" class="form-control" name="subject" placeholder="標題" ngModel #mSubject>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <label for="c_message" class="text-black store-Address">訊息 <span class="text-danger">*</span></label>
+                  <textarea name="text" cols="30" rows="7" class="form-control" placeholder="訊息" ngModel #mText
+                    required></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block store-Address">送出</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <!--店面資訊-->
+        <div class="col-md-5 ml-auto">
+          <div class="p-4 border mb-3">
+            <span class="d-block text-primary h6 store-Address">台科店</span>
+            <p class="mb-0 store-Address">臺北市大安區基隆路 4 段 43 號</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57845.64056565764!2d121.45016326223697!3d25.02210755441328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa2176c4c0ad%3A0x90db5e44ee29f455!2sNational+Taiwan+University+of+Science+and+Technology!5e0!3m2!1sen!2stw!4v1540131144833"
+              width="385" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

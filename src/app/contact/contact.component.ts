@@ -1,3 +1,4 @@
+declare var require: any;
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  message = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    require('src/assets/js/contact-email.js');
   }
 
+  onSubmit(value) {
+    this.message.push(value.value);
+    console.log(this.message);
+  }
 }
