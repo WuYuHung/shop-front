@@ -155,12 +155,20 @@
                     <strong class="text-black">{{totalCost()}}</strong>
                   </div>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                      <span class="text-black">手續費</span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                      <strong class="text-black">{{totalCost()*0.1}}  (+</strong>
+                    </div>
+                  </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">總價</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">{{totalCost()}}</strong>
+                    <strong class="text-black">{{totalCost()*1.1}}</strong>
                   </div>
                 </div>
 
