@@ -25,6 +25,8 @@ export class ShopSingleComponent implements OnInit {
   addData() {
 
     if (!this.check) {
+      this.product['paid'] = false;
+      this.product['quantity'] = 0;
       localStorage.setItem(this.id.toString(), JSON.stringify(this.product));
     } else {
       localStorage.removeItem(this.id.toString());
