@@ -6,13 +6,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './shop-single.component.html',
   styleUrls: ['./shop-single.component.css']
 })
-export class ShopSingleComponent implements OnInit {
-  productId: number;
 
+export class ShopSingleComponent implements OnInit {
+  id: number;
+  cateories: number;
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.productId = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
+    this.cateories = this.route.snapshot.params['cateories'];
   }
-
 }

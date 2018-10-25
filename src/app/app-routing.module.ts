@@ -35,7 +35,7 @@ const routes: Routes = [
     component: ShopComponent
   },
   {
-    path: 'shop/:cateories/:id',
+    path: 'shop/:id',
     component: ShopSingleComponent
   }
 ];
