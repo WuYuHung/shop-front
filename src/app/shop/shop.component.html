@@ -49,11 +49,11 @@
             <div *ngFor="let data of datas" class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shop/{{data.cateories}}/{{data.imagepath}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
+                  <a href="/shop/{{data.id}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
                       alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3><a href="/shop/{{data.cateories}}/{{data.imagepath}}">{{data.name}}</a></h3>
+                  <h3><a href="/shop/{{data.id}}">{{data.name}}</a></h3>
                   <p class="mb-0">{{data.description}}</p>
                   <p class="text-primary font-weight-bold">${{data.price}}</p>
                 </div>
@@ -95,7 +95,7 @@
             <div class="mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">價錢篩選</h3>
               <div id="slider-range" class="border-primary"></div>
-              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="false" />
+              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" />
             </div>
           </div>
         </div>
