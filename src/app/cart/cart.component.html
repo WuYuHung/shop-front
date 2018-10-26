@@ -47,7 +47,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of cartList">
-                      <td class="product-thumbnail">nigger</td>
+                      <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}" alt="Image placeholder"
+                        class="img-fluid"></td>
                       <td class="product-name">{{item.name}}</td>
                       <td>{{item.price}}</td>
                       <td>
@@ -160,7 +161,7 @@
                       <span class="text-black">手續費</span>
                     </div>
                     <div class="col-md-6 text-right">
-                      <strong class="text-black">{{totalCost()*0.1}}  (+</strong>
+                      <strong class="text-black">{{deliver()}}  (+</strong>
                     </div>
                   </div>
                 <div class="row mb-5">
@@ -168,13 +169,13 @@
                     <span class="text-black">總價</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">{{totalCost()*1.1}}</strong>
+                    <strong class="text-black">{{total()}}</strong>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">結帳</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" routerLink="/pay">結帳</button>
                   </div>
                 </div>
               </div>

@@ -7,6 +7,8 @@ import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
+import { PayComponent } from './pay/pay.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 const routes: Routes = [
@@ -35,8 +37,20 @@ const routes: Routes = [
     component: ShopComponent
   },
   {
-    path: 'shop/:id',
+    path: 'shopsingle/:id',
     component: ShopSingleComponent
+  },
+  {
+    path: 'shop/:cateories',
+    component: ShopComponent
+  },
+  {
+    path: 'pay',
+    component: PayComponent
+  },
+  {
+    path: 'thankyou',
+    component: ThankyouComponent
   }
 ];
 
@@ -44,4 +58,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

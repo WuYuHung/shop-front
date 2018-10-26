@@ -1,7 +1,6 @@
 <div class="site-navbar-top">
   <div class="container">
     <div class="row align-items-center">
-
       <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
         <form action="" class="site-block-top-search">
           <span class="icon icon-search2"></span>
@@ -23,7 +22,7 @@
             <li>
               <a routerLink="/cart" class="site-cart">
                 <span class="icon icon-shopping_cart"></span>
-                <span class="count">87</span>
+                <span class="count">{{ productCount }}</span>
               </a>
             </li>
             <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
@@ -38,32 +37,8 @@
 <nav class="site-navigation text-right text-md-center" role="navigation">
   <div class="container">
     <ul class="site-menu js-clone-nav d-none d-md-block">
-      <li class="has-children active">
-        <a routerLink="/">首頁</a>
-        <ul class="dropdown">
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li class="has-children">
-            <a href="#">禮拜四來集大家之力唬爛一下...</a>
-            <ul class="dropdown">
-              <li><a href="#">Menu One</a></li>
-              <li><a href="#">Menu Two</a></li>
-              <li><a href="#">Menu Three</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="has-children">
-        <a href="about.html">關於我們</a>
-        <ul class="dropdown">
-          <li><a href="#">禮拜四來集大家之力唬爛一下...</a></li>
-          <li><a href="#">禮拜四來集大家之力唬爛一下...</a></li>
-          <li><a href="#">禮拜四來集大家之力唬爛一下...</a></li>
-        </ul>
-      </li>
+      <li><a routerLink="/">首頁</a></li>
       <li><a routerLink="/shop">商品</a></li>
-      <li><a routerLink="/new-arrivals">新品上市</a></li>
       <li><a routerLink="/contact">聯絡我們</a></li>
     </ul>
   </div>
