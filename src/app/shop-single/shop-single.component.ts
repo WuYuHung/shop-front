@@ -20,6 +20,7 @@ export class ShopSingleComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.product = jsonFile[this.id - 1];
     this.check = localStorage.getItem(this.id.toString()) ? true : false;
+
   }
 
   addData() {

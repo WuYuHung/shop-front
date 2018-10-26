@@ -1,14 +1,20 @@
   <div class="site-wrap">
-
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        </div>
+      </div>
+    </div>
 
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>{{product.id}}</h2>
+            <h2>{{product.name}}</h2>
           </div>
         </div>
-        <div class="row">
+        <div class="row" align="center">
           <div class="col-md-12">
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
@@ -23,10 +29,10 @@
                   </div>
                 </div>
               </div>
-              <button (click)="addData()">加入購物清單</button>
+              <button (click)="addData()" *ngIf="!check" class="btn btn-sm btn-secondary">加入購物清單</button>
+              <button (click)="addData()" *ngIf="check" class="btn btn-sm btn-primary">從購物清單移除</button>
           </div>
         </div>
       </div>
     </div>
-
   </div>

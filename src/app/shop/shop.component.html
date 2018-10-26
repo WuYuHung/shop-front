@@ -84,21 +84,73 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">分類</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1"><a href="/shop/man" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="/shop/woman" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="/shop/childman" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="/shop/childwoman" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a routerLink="/shop" (click)="click(' ')" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a routerLink="/shop/man" (click)="click('man')" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a routerLink="/shop/woman" (click)="click('woman')" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a routerLink="/shop/childman" (click)="click('childman')" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a routerLink="/shop/childwoman" (click)="click('childwoman')" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
             </ul>
           </div>
 
-          <div class="border p-4 rounded mb-4">
+          <!--<div class="border p-4 rounded mb-4">
             <div class="mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">價錢篩選</h3>
               <div id="slider-range" class="border-primary"></div>
               <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" />
             </div>
-          </div>
+          </div>-->
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section site-blocks-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+        <a class="block-2-item" routerLink="/shop/man" (click)="click('man')">
+          <figure class="image">
+            <img src="assets/images/men.jpg" alt="" class="img-fluid">
+          </figure>
+          <div class="text">
+            <span class="text-uppercase">Collections</span>
+            <h3>男裝</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+        <a class="block-2-item" routerLink="/shop/woman" (click)="click('woman')">
+          <figure class="image">
+            <img src="assets/images/women.jpg" alt="" class="img-fluid">
+          </figure>
+          <div class="text">
+            <span class="text-uppercase">Collections</span>
+            <h3>女裝</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+        <a class="block-2-item" routerLink="/shop/childman" (click)="click('childman')">
+          <figure class="image">
+            <img src="assets/images/chia-ming.png" alt="" class="img-fluid">
+          </figure>
+          <div class="text">
+            <span class="text-uppercase">Collections</span>
+            <h3>男童</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+        <a class="block-2-item" routerLink="/shop/childwoman" (click)="click('childwoman')">
+          <figure class="image">
+            <img src="assets/images/children.jpg" alt="" class="img-fluid">
+          </figure>
+          <div class="text">
+            <span class="text-uppercase">Collections</span>
+            <h3>女童</h3>
+          </div>
+        </a>
       </div>
     </div>
   </div>

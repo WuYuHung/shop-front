@@ -16,10 +16,18 @@ export class ShopComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
     this.cateories = this.route.snapshot.params['cateories'];
     this.datas = jsonFile;
     if (this.cateories != null) {
       this.datas = jsonFile.filter(t => t.cateories === this.cateories);
+    }
+  }
+
+  click($data) {
+    this.datas = jsonFile;
+    if ($data !== ' ') {
+      this.datas = jsonFile.filter(t => t.cateories === $data);
     }
   }
 }
