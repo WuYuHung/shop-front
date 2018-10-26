@@ -1,161 +1,161 @@
 [
   {
     "id": 1,
-    "name": "Man shoes 1",
+    "name": "Man's shoes 1",
     "cateories": "man",
-    "description": "this is man shoes",
+    "description": "this is man's shoes",
     "price": 8787,
     "imagepath": "1.png"
   },
   {
     "id": 2,
-    "name": "Man shoes 2",
+    "name": "Man's shoes 2",
     "cateories": "man",
-    "description": "this is man shoes",
+    "description": "this is man's shoes",
     "price": 7500,
     "imagepath": "2.jpg"
   },
   {
     "id": 3,
-    "name": "Man shoes 3",
+    "name": "Man's shoes 3",
     "cateories": "man",
-    "description": "this is man shoes",
+    "description": "this is man's shoes",
     "price": 9800,
     "imagepath": "3.bmp"
   },
   {
     "id": 4,
-    "name": "Man shoes 4",
+    "name": "Man's shoes 4",
     "cateories": "man",
-    "description": "this is Man shoes",
+    "description": "this is man's shoes",
     "price": 6000,
     "imagepath": "4.png"
   },
   {
     "id": 5,
-    "name": "Man shoes 5",
+    "name": "Man's shoes 5",
     "cateories": "man",
-    "description": "this is Man shoes",
+    "description": "this is man's shoes",
     "price": 5000,
     "imagepath": "5.png"
   },
   {
     "id": 6,
-    "name": "Woman shoes 1",
+    "name": "Woman's shoes 1",
     "cateories": "woman",
-    "description": "this is Woman shoes",
+    "description": "this is woman's shoes",
     "price": 8787,
     "imagepath": "1.png"
   },
   {
     "id": 7,
-    "name": "Woman shoes 2",
+    "name": "Woman's shoes 2",
     "cateories": "woman",
-    "description": "this is Woman shoes",
+    "description": "this is woman's shoes",
     "price": 7500,
     "imagepath": "2.png"
   },
   {
     "id": 8,
-    "name": "Woman shoes 3",
+    "name": "Woman's shoes 3",
     "cateories": "woman",
-    "description": "this is Woman shoes",
+    "description": "this is woman's shoes",
     "price": 9800,
     "imagepath": "3.png"
   },
   {
     "id": 9,
-    "name": "Woman shoes 4",
+    "name": "Woman's shoes 4",
     "cateories": "woman",
-    "description": "this is Woman shoes",
+    "description": "this is woman's shoes",
     "price": 6000,
     "imagepath": "4.png"
   },
   {
     "id": 10,
-    "name": "Woman shoes 5",
+    "name": "Woman's shoes 5",
     "cateories": "woman",
-    "description": "this is Woman shoes",
+    "description": "this is woman's shoes",
     "price": 5000,
     "imagepath": "5.png"
   },
   {
     "id": 11,
-    "name": "Child Man shoes 1",
-    "cateories": "childman",
-    "description": "this is Child Man shoes",
+    "name": "Boy's shoes 1",
+    "cateories": "boy",
+    "description": "this is boy's shoes",
     "price": 8787,
     "imagepath": "1.png"
   },
   {
     "id": 12,
-    "name": "Child Man shoes 2",
-    "cateories": "childman",
-    "description": "this is Child Man shoes",
+    "name": "Boy's shoes 2",
+    "cateories": "boy",
+    "description": "this is boy's shoes",
     "price": 7500,
     "imagepath": "2.png"
   },
   {
     "id": 13,
-    "name": "Child Man shoes 3",
-    "cateories": "childman",
-    "description": "this is Child Man shoes",
+    "name": "Boy's shoes 3",
+    "cateories": "boy",
+    "description": "this is boy's shoes",
     "price": 9800,
     "imagepath": "3.png"
   },
   {
     "id": 14,
-    "name": "Child Man shoes 4",
-    "cateories": "childman",
-    "description": "this is Child Man shoes",
+    "name": "Boy's shoes 4",
+    "cateories": "boy",
+    "description": "this is boy's shoes",
     "price": 6000,
     "imagepath": "4.png"
   },
   {
     "id": 15,
-    "name": "Child Man shoes 5",
-    "cateories": "childman",
-    "description": "this is Man shoes",
+    "name": "Boy's shoes 5",
+    "cateories": "boy",
+    "description": "this is boy's shoes",
     "price": 5000,
     "imagepath": "5.png"
   },
   {
     "id": 16,
-    "name": "Child woman shoes 1",
-    "cateories": "childwoman",
-    "description": "this is Child woman shoes",
+    "name": "Girl's shoes 1",
+    "cateories": "girl",
+    "description": "this is girl's shoes",
     "price": 8787,
     "imagepath": "1.png"
   },
   {
     "id": 17,
-    "name": "Child woman shoes 2",
-    "cateories": "childwoman",
-    "description": "this is Child woman shoes",
+    "name": "Girl's shoes 2",
+    "cateories": "girl",
+    "description": "this is girl's shoes",
     "price": 7500,
     "imagepath": "2.png"
   },
   {
     "id": 18,
-    "name": "Child woman shoes 3",
-    "cateories": "childwoman",
-    "description": "this is Child woman shoes",
+    "name": "Girl's shoes 3",
+    "cateories": "girl",
+    "description": "this is girl's shoes",
     "price": 9800,
     "imagepath": "3.png"
   },
   {
     "id": 19,
-    "name": "Child woman shoes 4",
-    "cateories": "childwoman",
-    "description": "this is Child woman shoes",
+    "name": "Girl's shoes 4",
+    "cateories": "girl",
+    "description": "this is girl's shoes",
     "price": 6000,
     "imagepath": "4.png"
   },
   {
     "id": 20,
-    "name": "Child woman shoes 5",
-    "cateories": "childwoman",
-    "description": "this is Child woman shoes",
+    "name": "Girl's shoes 5",
+    "cateories": "girl",
+    "description": "this is girl's shoes",
     "price": 5000,
     "imagepath": "5.png"
   }
