@@ -100,19 +100,19 @@
           <div class="tab-pane fade fade show active" id="buylist" role="tabpanel" aria-labelledby="buylist-tab">
             <ul class="nav nav-pills nav-fill">
               <li class="nav-item" role="presentation">
-                <a class="nav-link" id="unpaid-tab" data-toggle="tab" href="#unpaid" role="tab">待付款</a>
+                <a class="nav-link" id="unpaid-tab" data-toggle="tab" href="#unpaid" (click)="unpaid()" role="tab">待付款</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="unout-tab" data-toggle="tab" href="#unout" role="tab">待出貨</a>
+                <a class="nav-link" id="unout-tab" data-toggle="tab" href="#unout" (click)="unout()" role="tab">待出貨</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="unget-tab" data-toggle="tab" href="#unget" role="tab">待收貨</a>
+                <a class="nav-link" id="unget-tab" data-toggle="tab" href="#unget" (click)="undo()" role="tab">待收貨</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish" role="tab">完成</a>
+                <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish" (click)="undo()" role="tab">完成</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="cancel-tab" data-toggle="tab" href="#cancel" role="tab">取消</a>
+                <a class="nav-link" id="cancel-tab" data-toggle="tab" href="#cancel" (click)="undo()" role="tab">取消</a>
               </li>
             </ul>
           </div>
@@ -142,19 +142,16 @@
                     <th class="product-quantity">數量</th>
                     <th class="product-total">總價</th>
                     <th class="product-remove">移除</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                        alt="Image placeholder" class="img-fluid" width="200"></td>
                     <td class="product-name">{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
-                        [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                    </td>
+                    <td>{{item.quantity}}</td>
                     <td>{{item.quantity * item.price}}</td>
                     <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                   </tr>
@@ -171,19 +168,16 @@
                     <th class="product-quantity">數量</th>
                     <th class="product-total">總價</th>
                     <th class="product-remove">移除</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                        alt="Image placeholder" class="img-fluid" width="200"ㄔㄛ></td>
                     <td class="product-name">{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
-                        [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                    </td>
+                    <td>{{item.quantity}}</td>
                     <td>{{item.quantity * item.price}}</td>
                     <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                   </tr>
@@ -200,19 +194,16 @@
                     <th class="product-quantity">數量</th>
                     <th class="product-total">總價</th>
                     <th class="product-remove">移除</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                        alt="Image placeholder" class="img-fluid" width="200"></td>
                     <td class="product-name">{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
-                        [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                    </td>
+                    <td>{{item.quantity}}</td>
                     <td>{{item.quantity * item.price}}</td>
                     <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                   </tr>
@@ -229,19 +220,16 @@
                     <th class="product-quantity">數量</th>
                     <th class="product-total">總價</th>
                     <th class="product-remove">移除</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                        alt="Image placeholder" class="img-fluid" width="200"></td>
                     <td class="product-name">{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
-                        [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                    </td>
+                    <td>{{item.quantity}}</td>
                     <td>{{item.quantity * item.price}}</td>
                     <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                   </tr>
@@ -258,19 +246,16 @@
                     <th class="product-quantity">數量</th>
                     <th class="product-total">總價</th>
                     <th class="product-remove">移除</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                        alt="Image placeholder" class="img-fluid" width="200"></td>
                     <td class="product-name">{{item.name}}</td>
                     <td>{{item.price}}</td>
-                    <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
-                        [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                    </td>
+                    <td>{{item.quantity}}</td>
                     <td>{{item.quantity * item.price}}</td>
                     <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                   </tr>
