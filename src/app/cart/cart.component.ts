@@ -15,7 +15,7 @@ import { JsonPipe } from '@angular/common';
 
 export class CartComponent implements OnInit {
   public products: number;
-  cartList: [];
+  cartList: any;
 
   findIndex = function (id) {
     var index = -1;
@@ -71,13 +71,17 @@ export class CartComponent implements OnInit {
     this.cartList.forEach(t => total += t.price * t.quantity);
     return total;
   };
-  totalCount() {
-    let count = 0;
-    this.cartList.forEach(t => count += t.quantity);
-    return count;
+  deliver = function () {
+    let total = 0;
+    let tmp = this.totalCost();
+    if (tmp <= 10000){
+      total = 60;
+    }
+    return total;
+  };
+  total = function() {
+    return this.totalCost() + this.deliver();
   }
-
-
   constructor() {
     console.log(localStorage.length);
     let json = '[';
@@ -91,6 +95,7 @@ export class CartComponent implements OnInit {
     json += ']';
     console.log(json);
     this.cartList = JSON.parse(json);
+    this.cartList = this.cartList.filter(t => !t.paid);
   }
 
   ngOnInit() {

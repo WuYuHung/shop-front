@@ -14,12 +14,24 @@ export class ShopSingleComponent implements OnInit {
   id: number;
   tmp: any;
   product: any;
+  checkdata: any;
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.product = jsonFile[this.id - 1];
-    this.check = localStorage.getItem(this.id.toString()) ? true : false;
+    let json = '[';
+    for (let i = 0, len = localStorage.length; i < len; i++) {
+
+      json += localStorage.getItem(localStorage.key(i)) + '';
+      if (i !== len - 1) {
+        json += ',';
+      }
+    }
+    json += ']';
+    this.checkdata = JSON.parse(json).filter(t => t.paid == false && t.id == this.id);
+    this.check = this.checkdata.length > 0 ? true : false;
+    console.log(this.check);
   }
 
   addData() {
@@ -38,5 +50,6 @@ export class ShopSingleComponent implements OnInit {
       console.log(localStorage.getItem(localStorage.key(i)));
     }
     console.log(this.check);
+    location.reload();
   }
 }

@@ -1,3 +1,145 @@
-<p>
-  pay works!
-</p>
+<div class="site-wrap">
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="center">
+        <div class="col-md-12 mb-0"><a href="index.html">首頁</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">購物車</a>
+          <span class="mx-2 mb-0">/</span> <strong class="text-black">結帳</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+        <div class="col-md-6 mb-5 mb-md-0">
+          <h2 class="h3 mb-3 text-black">填寫付款人資訊</h2>
+          <div class="p-3 p-lg-5 border">
+            <div class="form-group">
+              <label for="c_country" class="text-black">國家 <span class="text-danger">*</span></label>
+              <select id="c_country" class="form-control">
+                <option value="1">選擇國家</option>
+                <option value="2">台灣</option>
+                <option value="3">美國</option>
+                <option value="4">加拿大</option>
+                <option value="5">英國</option>
+                <option value="6">法國</option>
+                <option value="7">中國</option>
+              </select>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="c_fname" class="text-black">姓 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_fname" name="c_fname">
+              </div>
+              <div class="col-md-6">
+                <label for="c_lname" class="text-black">名 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_lname" name="c_lname">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_companyname" class="text-black">公司名稱（選填） </label>
+                <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_address" class="text-black">地址 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_address" name="c_address" placeholder="請輸入郵遞區號">
+              </div>
+            </div>
+
+            <div class="form-group row mb-5">
+              <div class="col-md-6">
+                <label for="c_email_address" class="text-black">電子郵件 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_email_address" name="c_email_address" placeholder="123@example.com">
+              </div>
+              <div class="col-md-6">
+                <label for="c_phone" class="text-black">電話 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="c_phone" name="c_phone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account" role="button"
+                aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account">
+                我已經詳細閱讀條款。</label>
+              <div class="collapse" id="create_an_account">
+                <div class="py-2">
+                  <p class="mb-3">勾選後即表示您已經同意本公司開立的一切條款。</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="c_ship_different_address" class="text-black" data-toggle="collapse" href="#ship_different_address"
+                role="button" aria-expanded="false" aria-controls="ship_different_address"><input type="checkbox" value="1"
+                  id="c_ship_different_address"> 選擇不同收件人（不勾選則表示收件人同付款人）</label>
+              <div class="collapse" id="ship_different_address">
+                <div class="py-2">
+
+                  <div class="form-group">
+                    <label for="c_country" class="text-black">國家 <span class="text-danger">*</span></label>
+                    <select id="c_country" class="form-control">
+                      <option value="1">選擇國家</option>
+                      <option value="2">台灣</option>
+                      <option value="3">美國</option>
+                      <option value="4">加拿大</option>
+                      <option value="5">英國</option>
+                      <option value="6">法國</option>
+                      <option value="7">中國</option>
+                    </select>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label for="c_fname" class="text-black">姓 <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="c_fname" name="c_fname">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="c_lname" class="text-black">名 <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="c_lname" name="c_lname">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label for="c_companyname" class="text-black">公司名稱（選填） </label>
+                      <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label for="c_address" class="text-black">地址 <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="c_address" name="c_address" placeholder="請輸入郵遞區號">
+                    </div>
+                  </div>
+
+                  <div class="form-group row mb-5">
+                    <div class="col-md-6">
+                      <label for="c_email_address" class="text-black">電子郵件 <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="c_email_address" name="c_email_address" placeholder="123@example.com">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="c_phone" class="text-black">電話 <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="c_phone" name="c_phone">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg py-3 btn-block" routerLink="/thankyou" (click)="pay()">結帳</button>
+              </div>
+
+            </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- </form> -->
+  </div>
+</div>

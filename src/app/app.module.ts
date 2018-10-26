@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
 import { PayComponent } from './pay/pay.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PayComponent } from './pay/pay.component';
     UserComponent,
     ShopComponent,
     ShopSingleComponent,
-    PayComponent
+    PayComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

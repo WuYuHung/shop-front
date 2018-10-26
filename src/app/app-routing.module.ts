@@ -7,6 +7,8 @@ import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
+import { PayComponent } from './pay/pay.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 const routes: Routes = [
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'shop/:cateories',
     component: ShopComponent
+  },
+  {
+    path: 'pay',
+    component: PayComponent
+  },
+  {
+    path: 'thankyou',
+    component: ThankyouComponent
   }
 ];
 
