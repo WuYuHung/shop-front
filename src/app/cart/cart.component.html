@@ -124,7 +124,7 @@
               </div>
             -->
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block" [routerLink]="['/shop']" >繼續購物</button>
+                <button class="btn btn-outline-primary btn-sm btn-block" routerLink="/shop" >繼續購物</button>
               </div>
             </div>
             <div class="row">
@@ -133,10 +133,10 @@
                 <p>請輸入折價代碼</p>
               </div>
               <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                <input type="text" class="form-control py-3" id="coupon" placeholder="折價券代號" [(ngModel)]="couponid">
               </div>
               <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">確認</button>
+                <button class="btn btn-primary btn-sm" (click)="check()">確認</button>
               </div>
             </div>
           </div>

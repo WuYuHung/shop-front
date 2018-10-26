@@ -16,7 +16,7 @@ import { JsonPipe } from '@angular/common';
 export class CartComponent implements OnInit {
   public products: number;
   cartList: any;
-
+  couponid: any;
   findIndex = function (id) {
     var index = -1;
     this.cartList.forEach(function (item, key) {
@@ -100,6 +100,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  check() {
+    if (this.couponid === 'ponid-dinop' || this.couponid === 'g2esp-pse2g') {
+      alert('輸入成功！');
+    } else {
+      alert('認證失敗，請確認您的折價券代號！');
+    }
+  }
 }
 
