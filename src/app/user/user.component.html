@@ -2,136 +2,284 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 <div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>
-                                        戴文凱
-                                    </h5>
-                                    <h6>
-                                        Game Lab Owner
-                                    </h6>
-                                    <p class="proile-rating">Your Rating : <span>8.7/10</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                          <ul class="nav flex-column" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">我的帳戶</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" id="buylist-tab" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist" aria-selected="true">購買清單</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false">通知</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" id="coupon-tab" data-toggle="tab" href="#coupon" role="tab" aria-controls="coupon" aria-selected="false">我的優惠券</a>
-                           </li>
-                        </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane" id="account" role="tabpanel" aria-labelledby="account-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Birthday</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>1987/08/07</p>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade fade show active" id="buylist" role="tabpanel" aria-labelledby="buylist-tab">
-                                <ul class="nav nav-pills nav-fill">
-                                    <li class="nav-item">
-                                      <a class="nav-link active" href="#">待付款</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">待出貨</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">待收貨</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">完成</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">取消</a>
-                                      </li>
-                                  </ul>
-                  </div>
-                  <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                    <div class="row">
-
-                    </div>
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+            alt="" />
+          <div class="file btn btn-lg btn-primary">
+            Change Photo
+            <input type="file" name="file" />
+          </div>
         </div>
-                            <div class="tab-pane fade" id="coupon" role="tabpanel" aria-labelledby="coupon-tab">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label>Add Promo Code </label>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input>
-                                                <button type="button" class="btn btn-primary">加入</button>
-                                            </div>
-                                        </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </form>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head">
+          <h5>
+            {{userid}}
+          </h5>
+          <h6>
+            Game Lab Owner
+          </h6>
+          <p class="proile-rating">Your Rating : <span>8.7/10</span></p>
         </div>
+      </div>
+      <div class="col-md-2">
+        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-work">
+          <ul class="nav flex-column" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account"
+                aria-selected="false">我的帳戶</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="buylist-tab" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
+                aria-selected="true">購買清單</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification"
+                aria-selected="false">通知</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="coupon-tab" data-toggle="tab" href="#coupon" role="tab" aria-controls="coupon"
+                aria-selected="false">我的優惠券</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content profile-tab" id="myTabContent">
+          <div class="tab-pane" id="account" role="tabpanel" aria-labelledby="account-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <label>User Id</label>
+              </div>
+              <div class="col-md-6">
+                <p>Kshiti123</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Name</label>
+              </div>
+              <div class="col-md-6">
+                <p>Kshiti Ghelani</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Email</label>
+              </div>
+              <div class="col-md-6">
+                <p>kshitighelani@gmail.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Phone</label>
+              </div>
+              <div class="col-md-6">
+                <p>123 456 7890</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Birthday</label>
+              </div>
+              <div class="col-md-6">
+                <p>1987/08/07</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade fade show active" id="buylist" role="tabpanel" aria-labelledby="buylist-tab">
+            <ul class="nav nav-pills nav-fill">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="unpaid-tab" data-toggle="tab" href="#unpaid" role="tab">待付款</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="unout-tab" data-toggle="tab" href="#unout" role="tab">待出貨</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="unget-tab" data-toggle="tab" href="#unget" role="tab">待收貨</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish" role="tab">完成</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="cancel-tab" data-toggle="tab" href="#cancel" role="tab">取消</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+            <div class="row">
+            </div>
+          </div>
+          <div class="tab-pane fade" id="coupon" role="tabpanel" aria-labelledby="coupon-tab">
+            <div class="row">
+              <div class="col-md-8">
+                <label>Add Promo Code </label>
+              </div>
+              <div class="col-md-12">
+                <input type="text" [(ngModel)]="code" name="fname">
+                <input type="submit" value="快按" (click)="onclick()">
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="unpaid" role="tabpanel">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">商品圖片</th>
+                    <th class="product-name">商品名稱</th>
+                    <th class="product-price">價格</th>
+                    <th class="product-quantity">數量</th>
+                    <th class="product-total">總價</th>
+                    <th class="product-remove">移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartList">
+                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-name">{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                        [ngModelOptions]="{standalone: true}">
+                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                    </td>
+                    <td>{{item.quantity * item.price}}</td>
+                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="unout" role="tabpanel">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">商品圖片</th>
+                    <th class="product-name">商品名稱</th>
+                    <th class="product-price">價格</th>
+                    <th class="product-quantity">數量</th>
+                    <th class="product-total">總價</th>
+                    <th class="product-remove">移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartList">
+                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-name">{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                        [ngModelOptions]="{standalone: true}">
+                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                    </td>
+                    <td>{{item.quantity * item.price}}</td>
+                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="unget" role="tabpanel" aria-labelledby="unpaid-tab">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">商品圖片</th>
+                    <th class="product-name">商品名稱</th>
+                    <th class="product-price">價格</th>
+                    <th class="product-quantity">數量</th>
+                    <th class="product-total">總價</th>
+                    <th class="product-remove">移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartList">
+                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-name">{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                        [ngModelOptions]="{standalone: true}">
+                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                    </td>
+                    <td>{{item.quantity * item.price}}</td>
+                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="unpaid-tab">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">商品圖片</th>
+                    <th class="product-name">商品名稱</th>
+                    <th class="product-price">價格</th>
+                    <th class="product-quantity">數量</th>
+                    <th class="product-total">總價</th>
+                    <th class="product-remove">移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartList">
+                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-name">{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                        [ngModelOptions]="{standalone: true}">
+                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                    </td>
+                    <td>{{item.quantity * item.price}}</td>
+                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="cancel" role="tabpanel" aria-labelledby="unpaid-tab">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">商品圖片</th>
+                    <th class="product-name">商品名稱</th>
+                    <th class="product-price">價格</th>
+                    <th class="product-quantity">數量</th>
+                    <th class="product-total">總價</th>
+                    <th class="product-remove">移除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartList">
+                    <td class="product-thumbnail">nigger</td>
+                    <td class="product-name">{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                        [ngModelOptions]="{standalone: true}">
+                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                    </td>
+                    <td>{{item.quantity * item.price}}</td>
+                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
