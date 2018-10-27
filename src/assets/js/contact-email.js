@@ -15,6 +15,7 @@ myform.submit(function (event) {
     .then(function () {
       alert("已成功寄出!");
       myform.find("button").text("送出");
+      location.reload();
     }, function (err) {
       alert("寄送失敗\r\n Response:\n " + JSON.stringify(err));
       myform.find("button").text("送出");
