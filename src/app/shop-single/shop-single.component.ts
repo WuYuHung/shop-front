@@ -15,6 +15,7 @@ export class ShopSingleComponent implements OnInit {
   tmp: any;
   product: any;
   checkdata: any;
+  toten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

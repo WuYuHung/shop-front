@@ -2,37 +2,42 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="">首頁</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">商品資訊</strong></div>
         </div>
       </div>
     </div>
 
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>{{product.name}}</h2>
-          </div>
+        <div class="row">
+        <div class="col-md-6">
+            <div class="col-sm-6 col-lg-8 mb-4" data-aos="fade-up">
+                <figure class="block-4-image">
+                  <img src="assets/images/shop/{{product.cateories}}/{{product.imagepath}}" alt="Image placeholder"
+                      class="img-fluid">
+                </figure>
+                <h4>商品評價：<b style="color:GoldenRod;">9.2</b><div style="font-size:60%">共來自92筆評價</div></h4>
+            </div>
         </div>
-        <div class="row" align="center">
-          <div class="col-md-12">
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <img src="assets/images/shop/{{product.cateories}}/{{product.imagepath}}" alt="Image placeholder"
-                        class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3>{{product.name}}</h3>
-                    <p class="mb-0">{{product.description}}</p>
-                    <p class="text-primary font-weight-bold">${{product.price}}</p>
-                  </div>
-                </div>
-              </div>
-              <button routerLink="/shop" class="btn btn-sm btn-info">回商品目錄</button>&nbsp;&nbsp;
-              <button (click)="addData()" *ngIf="!check" class="btn btn-sm btn-secondary">加入購物清單</button>
-              <button (click)="addData()" *ngIf="check" class="btn btn-sm btn-primary">從購物清單移除</button>
-          </div>
+        <div class="col-md-6">
+            <h2>{{product.name}}</h2>
+            <h3>{{product.description}}</h3>
+            <p style="font-size:160%;" class="text-primary font-weight-bold">會員價 &nbsp;&nbsp;${{product.price * 0.8}}</p>
+            <p style="font-size:80%;">(原價 &nbsp;&nbsp;${{product.price}})</p>
+            <h4 style="color:red;" >較市面價格便宜13％!!</h4>
+            數量：<select style="width: 70px">
+              <ng-container *ngFor="let i of toten;">
+                <option>{{ i }}</option>
+              </ng-container>
+            </select>
+            &nbsp;&nbsp; 總計：{{ product.price*2 }}
+            <br><br><br>
+            <button (click)="addData()" *ngIf="!check" class="btn btn-sm btn-secondary">加入購物清單</button>
+            <button (click)="addData()" *ngIf="check" class="btn btn-sm btn-primary">從購物清單移除</button>
+
+            <br><br>
+            <button routerLink="/shop" class="btn btn-sm btn-info">回商品目錄</button>&nbsp;&nbsp;
+        </div>
         </div>
       </div>
     </div>
