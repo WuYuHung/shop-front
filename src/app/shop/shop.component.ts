@@ -19,15 +19,15 @@ export class ShopComponent implements OnInit {
   constructor(private route: ActivatedRoute, private ShopService: ShopService ) { }
 
   ngOnInit() {
-    this.ShopService.getAll().subscribe(data => {console.log(data); });
+    this.ShopService.getAll().subscribe(data => { this.datas = data; console.log(data); });
     this.kw = this.route.snapshot.params['kw'];
     this.cateories = this.route.snapshot.params['cateories'];
     this.datas = jsonFile;
     if (this.cateories != null) {
-      this.datas = jsonFile.filter(t => t.cateories === this.cateories);
+      this.datas = this.datas.filter(t => t.cateories === this.cateories);
     }
     if (this.kw != null) {
-      this.datas = jsonFile.filter(t => t.name.toLowerCase().includes(this.kw.toLowerCase()));
+      this.datas = this.datas.filter(t => t.name.toLowerCase().includes(this.kw.toLowerCase()));
     }
   }
 

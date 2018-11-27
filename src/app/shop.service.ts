@@ -8,6 +8,9 @@ export class ShopService {
 
   constructor(private httpClient: HttpClient) { }
    getAll() {
-     return this.httpClient.get('localhost:8000/api/products');
+     return this.httpClient.get('http://localhost:8000/api/products');
+   }
+   getSingle(id) {
+     return this.httpClient.get('http://localhost:8000/api/product/' + id);
    }
 }
