@@ -1,0 +1,100 @@
+<div class="site-wrap">
+
+  <!--目前位置(可返回home)-->
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Register</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+
+        <!--表單標題-->
+        <div class="col-md-12">
+          <h2 class="h3 mb-3 text-black store-Address">註冊</h2>
+        </div>
+
+        <!--表單-->
+        <div class="col-md" ng-controller="MyCtrl">
+          <form name="form" id="myform" method="post" ngNativeValidate>
+            <div class="p-3 p-lg-5 border">
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">姓名</label>
+                  <input type="text" class="form-control" name="name" placeholder="請填寫真實姓名" [(ngModel)]="user.name"
+                    required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">信箱</label>
+                  <input type="email" class="form-control" name="email" placeholder="請填寫有效的Email" [(ngModel)]="user.email"
+                    required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">生日</label>
+                  <input type="date" class="form-control" name="birthdate" placeholder="請填寫生日日期" [(ngModel)]="user.birthdate"
+                    required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">地址</label>
+                  <input type="text" class="form-control" name="address" placeholder="請填寫正確地址" [(ngModel)]="user.address"
+                    required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">手機</label>
+                  <input type="text" class="form-control" name="phone" placeholder="請填寫正確十碼電話號碼 ex. 0910123456"
+                    [(ngModel)]="user.phone" pattern='\d{10}' required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">設定密碼</label>
+                  <input type="password" class="form-control" name="password" placeholder="輸入密碼(八碼)" [(ngModel)]="user.password"
+                    pattern='\d{8}' required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">密碼確認 </label>
+                  <input type="password" class="form-control" name="password_confirmation" placeholder="請再輸入一次密碼"
+                    [(ngModel)]="user.password_confirmation" pattern='\d{8}' required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">
+                    <input type="checkbox" class="" name="checkbox" required>
+                    <div style="color: gray">我同意G2 Esports
+                      商城的客戶隱私權政策與客戶服務條款</div>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <button type="button" class="btn btn-primary btn-lg btn-block store-Address" (click)="register()">立即註冊</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+
+        <!--店面資訊-->
+
+      </div>
+    </div>
+  </div>
+</div>

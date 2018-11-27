@@ -15,6 +15,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
 import { PayComponent } from './pay/pay.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,11 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     ShopComponent,
     ShopSingleComponent,
     PayComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    RegisterComponent,
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
