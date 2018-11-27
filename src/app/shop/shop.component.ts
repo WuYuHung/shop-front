@@ -16,6 +16,7 @@ export class ShopComponent implements OnInit {
   cateories: string;
   id: number;
   kw: any;
+  test: any;
   constructor(private route: ActivatedRoute, private ShopService: ShopService ) { }
 
   ngOnInit() {
@@ -36,5 +37,8 @@ export class ShopComponent implements OnInit {
     if ($data !== ' ') {
       this.datas = jsonFile.filter(t => t.cateories === $data);
     }
+  }
+  call() {
+    console.log(this.test);
   }
 }
