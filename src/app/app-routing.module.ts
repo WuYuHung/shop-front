@@ -51,6 +51,10 @@ const routes: Routes = [
   {
     path: 'thankyou',
     component: ThankyouComponent
+  },
+  {
+    path: 'shop/search/:kw',
+    component: ShopComponent
   }
 ];
 
