@@ -29,7 +29,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     ShopComponent,
     ShopSingleComponent,
     PayComponent,
-    ThankyouComponent
+    ThankyouComponent,
   ],
   imports: [
     BrowserModule,

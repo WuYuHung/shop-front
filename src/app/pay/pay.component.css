@@ -1,0 +1,13 @@
+.alert{
+
+  color:red;
+
+  display:inline;
+
+  }
+input.ng-invalid {
+    border: 1px solid red;
+    background:white;
+    padding: 5px;
+    
+}
