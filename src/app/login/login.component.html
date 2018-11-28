@@ -4,7 +4,7 @@
   <div class="bg-light py-3">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Register</strong></div>
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Login</strong></div>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
 
         <!--表單標題-->
         <div class="col-md-12">
-          <h2 class="h3 mb-3 text-black store-Address">註冊</h2>
+          <h2 class="h3 mb-3 text-black store-Address">登入</h2>
         </div>
 
         <!--表單-->
@@ -26,19 +26,21 @@
               <div class="form-group row">
                 <div class="col-md">
                   <label class="text-black store-Address">信箱</label>
-                  <input type="email" class="form-control" name="email" placeholder="example123@mail.com" [(ngModel)]="user.email"
-                    required>
+                  <input type="email" class="form-control store-Address" name="email" placeholder="example123@mail.com"
+                    [(ngModel)]="user.email" required>
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md">
                   <label class="text-black store-Address">密碼</label>
-                  <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="user.password"
-                    pattern='\d{8}' required>
+                  <input type="password" class="form-control store-Address" name="password" placeholder="password"
+                    [(ngModel)]="user.password" required>
                 </div>
               </div>
-
+              <div *ngIf="errorLogin" class="errorResponse store-Address">
+                帳號或密碼有誤
+              </div>
               <div class="form-group row">
                 <div class="col-lg-12">
                   <button type="button" class="btn btn-primary btn-lg btn-block store-Address" (click)="login()">登入</button>
