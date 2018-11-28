@@ -13,9 +13,9 @@
       <div class="col-md-6 mb-5 mb-md-0">
         <h2 class="h3 mb-3 text-black">填寫付款人資訊</h2>
         <div class="p-3 p-lg-5 border">
-          
+
             <form   class="was-validated">
-              
+
               <div class="form-group">
                   <label for="c_country" class="text-black">國家 <span class="text-danger">*</span></label>
                   <select class="custom-select" required>
@@ -37,7 +37,7 @@
               <label for="c_fname" class="text-black">姓 <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="c_fname"  name="c_fname" [(ngModel)]="c_fname" [disabled]="disabled" required>
               <div class="invalid-feedback">請填寫姓氏</div>
-                
+
             </div>
             <div class="col-md-6">
               <label for="c_lname" class="text-black">名 <span class="text-danger">*</span></label>
@@ -73,20 +73,19 @@
               <div class="invalid-feedback">請填寫正確格式之手機號碼</div>
             </div>
           </div>
-          
+
 
           <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="private"  [(ngModel)]="checkkk"    required>
+              <input type="checkbox" class="custom-control-input" id="private"  [(ngModel)]="checkkk" name="private"   required>
               <label class="custom-control-label" for="private">同意本公司存取您所填寫之個人資料</label>
               <div class="invalid-feedback">必須勾選</div>
             </div>
 
-
 <div class = "form-group">
-          <button class="btn btn-primary btn-lg py-3 btn-block" type ="submit" (click)="pay()" [disabled]="checkkk === false ||checkkk === null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null">結帳</button>
+          <button class="btn btn-primary btn-lg py-3 btn-block" type ="submit" (click)="pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null" routerLink="/thankyou">結帳</button>
 </div>
         </form>
-        
+
 
         </div>
 

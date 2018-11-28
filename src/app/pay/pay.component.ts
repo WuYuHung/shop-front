@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   selector: 'app-pay',
   templateUrl: './pay.component.html',
   styleUrls: ['./pay.component.css']
-  
+
 })
 
 export class PayComponent implements OnInit {
@@ -12,10 +12,10 @@ export class PayComponent implements OnInit {
   c_fname:string;
   c_lname:string;
   c_address:string;
-  c_phone:string;
-  checkkk:any;
+  c_phone:any;
+  checkkk = false;
 
-  
+
 
   cartList: any;
   constructor() {
@@ -34,14 +34,14 @@ export class PayComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  check(){
 
-      if(c_email_address.includes('@')&&c_fname != null&&c_lname != null&&c_address != null&&c_phone.length() == 10 )
+  check() {
+
+      if (this.c_email_address.includes('@') && this.c_fname != null && this.c_lname != null && this.c_address != null && this.c_phone.length() === 10 )
       {
         return 1;
       }
-      else 0;
+      else return 0;
 
 
 
@@ -54,11 +54,10 @@ export class PayComponent implements OnInit {
     for (let i = 0; i < this.cartList.length; i++) {
       this.cartList[i]['paid'] = true;
       localStorage.setItem(localStorage.key(i), JSON.stringify(this.cartList[i]));
-      
+
     }
   }
-  
- 
+
 }
 
 
