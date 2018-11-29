@@ -15,7 +15,11 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
 import { PayComponent } from './pay/pay.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
-import {HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ShopRateComponent } from './shop-rate/shop-rate.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +34,11 @@ import {HttpClientModule} from '@angular/common/http';
     ShopSingleComponent,
     PayComponent,
     ThankyouComponent,
+    RegisterComponent,
+    LoginComponent
+    ShopRateComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

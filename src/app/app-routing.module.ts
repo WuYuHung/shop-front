@@ -9,7 +9,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopSingleComponent } from './shop-single/shop-single.component';
 import { PayComponent } from './pay/pay.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
-
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ShopRateComponent } from './shop-rate/shop-rate.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,22 @@ const routes: Routes = [
   {
     path: 'thankyou',
     component: ThankyouComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'shop/search/:kw',
+    component: ShopComponent
+  },
+  {
+    path: 'shop-rate/:id',
+    component: ShopRateComponent
   }
 ];
 
@@ -58,5 +76,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
