@@ -9,11 +9,9 @@
 
   <div class="site-section">
     <div class="container">
-
+    <button (click)="check()">test</button>
       <div class="row mb-5">
         <div class="col-md-9 order-2">
-          <input [(ngModel)]="test" type="checkbox">
-          <button (click)="call()">test</button>
           <div class="row">
             <div class="col-md-12 mb-5">
               <div class="float-md-left mb-4">
@@ -26,13 +24,13 @@
                   <div class="dropdown mr-1 ml-md-auto">
                   </div>
                   <div class="btn-group">
-                    <select id="dropdownMenuReference" class="btn btn-secondary">
-                      <option class="dropdown-item" href="#" selected="selected">預設排序</option>
-                      <option class="dropdown-item" href="#">名稱，由小到大</option>
-                      <option class="dropdown-item" href="#">名稱，由大到小</option>
+                    <select class="btn btn-secondary" (change)="ChangingValue($event)" [value]='all' [(ngModel)]="sort_kind" id="sort_kind" name="sort_kind">
+                      <option value="all" class="dropdown-item" selected>預設排序</option>
+                      <option value="ascname"class="dropdown-item">名稱，由小到大</option>
+                      <option value="decname" class="dropdown-item">名稱，由大到小</option>
                       <div class="dropdown-divider"></div>
-                      <option class="dropdown-item" href="#">價格，由高到低</option>
-                      <option class="dropdown-item" href="#">價格，由低到高</option>
+                      <option value="decprice" class="dropdown-item">價格，由高到低</option>
+                      <option value="ascprice" class="dropdown-item">價格，由低到高</option>
                       </select>
                   </div>
                 </div>
@@ -43,7 +41,7 @@
             <div *ngFor="let data of datas" class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shopsingle/{{data.id}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
+                  <a href="/shopsingle/{{data.id}}"><img src="#"
                       alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
@@ -78,11 +76,11 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">分類</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1"><a routerLink="/shop" (click)="click(' ')" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/man" (click)="click('man')" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/woman" (click)="click('woman')" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/boy" (click)="click('boy')" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/girl" (click)="click('girl')" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop" (click)="click()" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/1" (click)="click(1)" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/2" (click)="click(2)" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/3" (click)="click(3)" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="/shop/4" (click)="click(4)" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
             </ul>
           </div>
 

@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import jsonFile from 'src/assets/json/database.json';
 import { ActivatedRoute } from '@angular/router';
 import { ShopService } from '../shop.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,32 +13,43 @@ import { ShopService } from '../shop.service';
 export class ShopComponent implements OnInit {
   name: any;
   datas: any;
-  cateories: string;
+  category: string;
   id: number;
   kw: any;
-  test: any;
+  sort_kind = 'all';
+  sort_kindd: any;
+  sort_method: any;
   constructor(private route: ActivatedRoute, private ShopService: ShopService ) { }
 
   ngOnInit() {
-    this.ShopService.getAll().subscribe(data => { this.datas = data; console.log(data); });
+    this.ShopService.getAll().subscribe(data => {
+    if (this.datas == null) {
+      this.datas = data;
+    }
     this.kw = this.route.snapshot.params['kw'];
-    this.cateories = this.route.snapshot.params['cateories'];
-    this.datas = jsonFile;
-    if (this.cateories != null) {
-      this.datas = this.datas.filter(t => t.cateories === this.cateories);
+    this.category = this.route.snapshot.params['category'];
+    if (this.category != null) {
+      this.datas = this.datas.filter(t => t.category_id == this.category);
     }
     if (this.kw != null) {
       this.datas = this.datas.filter(t => t.name.toLowerCase().includes(this.kw.toLowerCase()));
     }
+    console.log(this.datas);
+    });
   }
-
-  click($data) {
-    this.datas = jsonFile;
-    if ($data !== ' ') {
-      this.datas = jsonFile.filter(t => t.cateories === $data);
-    }
+  check() {
+    console.log(this.sort_kind);
   }
-  call() {
-    console.log(this.test);
+  ChangingValue(kind) {
+    this.sort_kind = kind.target.value;
+    this.sort_method = this.sort_kind.slice(0, 3);
+    this.sort_kindd = this.sort_kind.slice(3, this.sort_kind.length);
+    this.ShopService.getsort(this.sort_method, this.sort_kindd).subscribe(
+      data => {
+        console.log(data);
+        this.datas = data;
+        this.ngOnInit();
+      }
+    );
   }
 }

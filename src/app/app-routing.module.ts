@@ -42,7 +42,7 @@ const routes: Routes = [
     component: ShopSingleComponent
   },
   {
-    path: 'shop/:cateories',
+    path: 'shop/:category',
     component: ShopComponent
   },
   {
