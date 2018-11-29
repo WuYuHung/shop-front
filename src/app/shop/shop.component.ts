@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import jsonFile from 'src/assets/json/database.json';
 import { ActivatedRoute } from '@angular/router';
+import { ShopService } from '../shop.service';
 
 
 @Component({
@@ -10,17 +11,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ShopComponent implements OnInit {
+  name: any;
   datas: any;
   cateories: string;
   id: number;
-  constructor(private route: ActivatedRoute) { }
+  kw: any;
+  test: any;
+  constructor(private route: ActivatedRoute, private ShopService: ShopService ) { }
 
   ngOnInit() {
-
+    this.ShopService.getAll().subscribe(data => { this.datas = data; console.log(data); });
+    this.kw = this.route.snapshot.params['kw'];
     this.cateories = this.route.snapshot.params['cateories'];
     this.datas = jsonFile;
     if (this.cateories != null) {
-      this.datas = jsonFile.filter(t => t.cateories === this.cateories);
+      this.datas = this.datas.filter(t => t.cateories === this.cateories);
+    }
+    if (this.kw != null) {
+      this.datas = this.datas.filter(t => t.name.toLowerCase().includes(this.kw.toLowerCase()));
     }
   }
 
@@ -29,5 +37,8 @@ export class ShopComponent implements OnInit {
     if ($data !== ' ') {
       this.datas = jsonFile.filter(t => t.cateories === $data);
     }
+  }
+  call() {
+    console.log(this.test);
   }
 }

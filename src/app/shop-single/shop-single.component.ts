@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import jsonFile from 'src/assets/json/database.json';
+import { ShopService } from '../shop.service';
 import cartFile from 'src/assets/json/cart.json';
 
 @Component({
@@ -15,23 +15,12 @@ export class ShopSingleComponent implements OnInit {
   tmp: any;
   product: any;
   checkdata: any;
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  toten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  constructor(private router: Router, private route: ActivatedRoute, private ShopService: ShopService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.product = jsonFile[this.id - 1];
-    let json = '[';
-    for (let i = 0, len = localStorage.length; i < len; i++) {
-
-      json += localStorage.getItem(localStorage.key(i)) + '';
-      if (i !== len - 1) {
-        json += ',';
-      }
-    }
-    json += ']';
-    this.checkdata = JSON.parse(json).filter(t => t.paid == false && t.id == this.id);
-    this.check = this.checkdata.length > 0 ? true : false;
-    console.log(this.check);
+    this.ShopService.getSingle(this.id).subscribe(data => { this.product = data; console.log(data); });
   }
 
   addData() {

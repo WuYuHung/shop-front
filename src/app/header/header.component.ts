@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  enter(kw) {
+    console.log(kw);
+    window.location.href = '/shop/search/' + kw;
+  }
 }
