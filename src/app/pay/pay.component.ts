@@ -20,9 +20,9 @@ export class PayComponent implements OnInit {
   c_phone: any;
   checkkk = false;
   c_companyname: string;
-  Total: any;
   totalCost: any;
   deliver: any;
+  Total: any;
   pay: any;
 
 
@@ -63,11 +63,28 @@ export class PayComponent implements OnInit {
       this.cartList[i]['paid'] = true;
       localStorage.setItem(localStorage.key(i), JSON.stringify(this.cartList[i]));
     }
-    localStorage.clear();
+    // localStorage.clear();
+
+
+    this.totalCost = function (): number {
+      let total = 0;
+      this.cartList.forEach(t => total += t.price * t.quantity);
+      return total;
+    };
+    this.deliver = function(): number {
+      let total = 0;
+      let tmp = this.totalCost();
+      if (tmp <= 10000) {
+        total = 60;
+      }
+      return total;
+    };
+    this.Total = function(): number {
+      return this.totalCost() + this.deliver();
+    };
     this.pay = {
       user_id: 1,
-      coupon_id: null,
-      amount: this.Total.toString(),
+      amount: this.Total(),
       first_name: this.c_fname,
       last_name: this.c_lname,
       company_name: this.c_companyname,
@@ -76,29 +93,9 @@ export class PayComponent implements OnInit {
       phone: this.c_phone,
       status: 'pay'
     };
-
-    console.log(this.pay);
     this.ShopService.postOrder(this.pay).subscribe(data => {
       console.log(data);
     });
-
-    this.totalCost = function () {
-      let total = 0;
-      this.cartList.forEach(t => total += t.price * t.quantity);
-      return total;
-    };
-    this.deliver = function () {
-      let total = 0;
-      let tmp = this.totalCost();
-      if (tmp <= 10000) {
-        total = 60;
-      }
-      return total;
-    };
-    this.Total = function () {
-      return this.totalCost() + this.deliver();
-    }
-
   }
 
 }
