@@ -38,12 +38,6 @@ import { ShopRateComponent } from './shop-rate/shop-rate.component';
     LoginComponent
     ShopRateComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
