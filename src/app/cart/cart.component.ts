@@ -1,11 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { $ } from 'protractor';
-import { forEach } from '@angular/router/src/utils/collection';
-import { identifierModuleUrl } from '@angular/compiler';
-import { JsonPipe } from '@angular/common';
-
-
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -83,14 +76,20 @@ export class CartComponent implements OnInit {
     return this.totalCost() + this.deliver();
   }
   constructor() {
-    console.log(localStorage.length);
     let json = '[';
+    let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
-
-     json += localStorage.getItem(localStorage.key(i)) + '';
-     if (i !== len - 1) {
+      if (localStorage.key(i) == 'token'){
+        minus = 2;
+      }
+    }
+    for (let i = 0, len = localStorage.length; i < len; i++) {
+      if (localStorage.key(i) != 'token') {
+      json += localStorage.getItem(localStorage.key(i)) + '';
+     if (i !== len - minus) {
       json += ',';
      }
+    }
     }
     json += ']';
     console.log(json);

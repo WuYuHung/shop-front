@@ -35,7 +35,7 @@ import { ShopRateComponent } from './shop-rate/shop-rate.component';
     PayComponent,
     ThankyouComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
     ShopRateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],

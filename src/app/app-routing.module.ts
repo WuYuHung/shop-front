@@ -12,6 +12,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
@@ -43,10 +44,6 @@ const routes: Routes = [
     component: ShopSingleComponent
   },
   {
-    path: 'shop/:category',
-    component: ShopComponent
-  },
-  {
     path: 'pay',
     component: PayComponent
   },
@@ -63,12 +60,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'shop/search/:kw',
-    component: ShopComponent
-  },
-  {
-    path: 'shop-rate/:id',
-    component: ShopRateComponent
+    path: 'header',
+    component: HeaderComponent
   }
 ];
 
