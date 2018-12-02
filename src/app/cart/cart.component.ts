@@ -106,5 +106,13 @@ export class CartComponent implements OnInit {
       alert('認證失敗，請確認您的折價券代號！');
     }
   }
+  clearCart() {
+    for (let i = 0, len = localStorage.length; i < len; i++) {
+      if (localStorage.key(i) != 'token') {
+        localStorage.removeItem(localStorage.key(i));
+      }
+    }
+    location.reload();
+  }
 }
 

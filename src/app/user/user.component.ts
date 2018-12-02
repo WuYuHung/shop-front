@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { url } from "inspector";
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({

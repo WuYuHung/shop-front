@@ -37,4 +37,8 @@ export class ShopSingleComponent implements OnInit {
     this.check = !this.check;
       this.router.navigate(['/shopsingle/' + this.id]);
   }
+  ChangingValue(event) {
+    const amount = event.target.value;
+    this.product.amount = Number(amount);
+  }
 }
