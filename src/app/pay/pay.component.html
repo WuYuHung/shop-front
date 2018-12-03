@@ -51,7 +51,7 @@
             <div class="form-group row">
               <div class="col-md-12">
                 <label for="c_companyname" class="text-black">公司名稱（選填） </label>
-                <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+                <input type="text" class="form-control" id="c_companyname" name="c_companyname"  [(ngModel)]="c_companyname" >
               </div>
             </div>
 
@@ -88,7 +88,7 @@
             </div>
 
             <div class="form-group">
-              <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
+              <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="Pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
                 routerLink="/thankyou">結帳</button>
             </div>
           </form>
