@@ -46,7 +46,7 @@
                       <div class="form-group row">
                          <div class="col-md-12">
                             <label for="c_companyname" class="text-black">公司名稱（選填） </label>
-                            <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+                            <input type="text" class="form-control" id="c_companyname" name="c_companyname" [(ngModel)]="c_companyname">
                          </div>
                       </div>
                       <div class="form-group row">
@@ -71,14 +71,24 @@
                             <div class="invalid-feedback">請填寫正確格式之手機號碼</div>
                          </div>
                       </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                            <label class="text-black h4" for="coupon">折價券</label>
+                            <p>請輸入折價代碼</p>
+                          </div>
+                          <div class="col-md-8 mb-3 mb-md-0">
+                            <input type="text" class="form-control py-3" id="coupon" placeholder="折價券代號" [(ngModel)]="couponid">
+                          </div>
+                   </div>
                       <div class="custom-control custom-checkbox mb-3">
                          <input type="checkbox" class="custom-control-input" id="private" [(ngModel)]="checkkk" name="private"
                          required>
                          <label class="custom-control-label" for="private">同意本公司存取您所填寫之個人資料</label>
                          <div class="invalid-feedback">必須勾選</div>
                       </div>
+                      
                       <div class="form-group">
-                         <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
+                         <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="Pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
                          routerLink="/thankyou">結帳</button>
                       </div>
                    </form>
@@ -106,18 +116,7 @@
                       </tr>
                    </tbody>
                 </table>
-                <div class="row">
-                    <div class="col-md-6">
-                      <label class="text-black h4" for="coupon">折價券</label>
-                      <p>請輸入折價代碼</p>
-                    </div>
-                    <div class="col-md-8 mb-3 mb-md-0">
-                      <input type="text" class="form-control py-3" id="coupon" placeholder="折價券代號" [(ngModel)]="couponid">
-                    </div>
-                    <div class="col-md-4">
-                      <button class="btn btn-primary btn-sm" (click)="checkCoup()">確認</button>
-                    </div>
-             </div>
+                
           </div>
        </div>
     </div>
