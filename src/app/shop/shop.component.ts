@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShopService } from '../shop.service';
 import { Router } from '@angular/router';
-import * as jwt_decode from 'jwt-decode';
+
 import { load } from '@angular/core/src/render3/instructions';
 
 

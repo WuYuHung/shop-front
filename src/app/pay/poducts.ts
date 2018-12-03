@@ -1,5 +1,5 @@
 export interface Order {
-  constructor(first_name: string, last_name, company_name, address, email, phone){
+  constructor(first_name: string, last_name, company_name, address, email, phone,){
     this.first_name = first_name;
     this.last_name = last_name;
     this.company_name = company_name;

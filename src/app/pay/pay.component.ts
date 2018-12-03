@@ -18,6 +18,7 @@ export class PayComponent implements OnInit {
   c_lname: string;
   c_address: string;
   c_phone: any;
+  couponid: any;
   checkkk = false;
   c_companyname: string;
   totalCost: any;
@@ -91,6 +92,7 @@ export class PayComponent implements OnInit {
     };
     this.pay = {
       user_id: 1,
+      couponid: this.couponid,
       amount: this.Total(),
       first_name: this.c_fname,
       last_name: this.c_lname,
@@ -100,10 +102,18 @@ export class PayComponent implements OnInit {
       phone: this.c_phone,
       status: 'pay'
     };
+    if(this.pay.couponid == null)
+    {
+      this.pay.couponid = null;
+    }
+    console.log(this.pay);
+    
     this.ShopService.postOrder(this.pay).subscribe(data => {
       console.log(data);
     });
   }
+
+
 
 }
 
