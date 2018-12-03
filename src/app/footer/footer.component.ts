@@ -10,6 +10,6 @@ export class FooterComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    require('src/assets/js/subscribe-email.js');
+    // require('src/assets/js/subscribe-email.js');
   }
 }

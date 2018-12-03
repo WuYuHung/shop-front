@@ -13,6 +13,7 @@ export class AuthService {
   }
 
   login(user) {
+    console.log(user);
     return this.httpClient.post('http://localhost:8000/api/login', user);
   }
 
@@ -23,5 +24,5 @@ export class AuthService {
 
   isLogin() {
     return localStorage.getItem('token');
-  } //到時候去header，寫<登入 註冊>等tag
+  } // 到時候去header，寫<登入 註冊>等tag
 }

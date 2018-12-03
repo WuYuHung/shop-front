@@ -29,11 +29,18 @@ export class PayComponent implements OnInit {
   cartList: any;
   constructor(private ShopService: ShopService) {
     let json = '[';
+    let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
-
-      json += localStorage.getItem(localStorage.key(i)) + '';
-      if (i !== len - 1) {
-        json += ',';
+      if (localStorage.key(i) == 'token') {
+        minus = 2;
+      }
+    }
+    for (let i = 0, len = localStorage.length; i < len; i++) {
+      if (localStorage.key(i) != 'token') {
+        json += localStorage.getItem(localStorage.key(i)) + '';
+        if (i !== len - minus) {
+          json += ',';
+        }
       }
     }
     json += ']';

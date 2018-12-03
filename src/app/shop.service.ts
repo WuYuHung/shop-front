@@ -19,4 +19,7 @@ export class ShopService {
   getUser(id) {
     return this.httpClient.get('http://localhost:8000/api/user/' + id);
   }
+   getsort(kind, method) {
+     return this.httpClient.get('http://localhost:8000/api/products/sort/' + method + '/' +  kind);
+   }
 }

@@ -9,11 +9,8 @@
 
   <div class="site-section">
     <div class="container">
-
       <div class="row mb-5">
         <div class="col-md-9 order-2">
-          <input [(ngModel)]="test" type="checkbox">
-          <button (click)="call()">test</button>
           <div class="row">
             <div class="col-md-12 mb-5">
               <div class="float-md-left mb-4">
@@ -25,16 +22,6 @@
               <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
                   </div>
-                  <div class="btn-group">
-                    <select id="dropdownMenuReference" class="btn btn-secondary">
-                      <option class="dropdown-item" href="#" selected="selected">預設排序</option>
-                      <option class="dropdown-item" href="#">名稱，由小到大</option>
-                      <option class="dropdown-item" href="#">名稱，由大到小</option>
-                      <div class="dropdown-divider"></div>
-                      <option class="dropdown-item" href="#">價格，由高到低</option>
-                      <option class="dropdown-item" href="#">價格，由低到高</option>
-                      </select>
-                  </div>
                 </div>
             </div>
           </div>
@@ -43,7 +30,7 @@
             <div *ngFor="let data of datas" class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shopsingle/{{data.id}}"><img src="assets/images/shop/{{data.cateories}}/{{data.imagepath}}"
+                  <a href="/shopsingle/{{data.id}}"><img src="#"
                       alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
@@ -75,17 +62,30 @@
         </div>
 
         <div class="col-md-3 order-1 mb-5 mb-md-0">
+        <div class="border p-4 rounded mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">搜尋</h3>
+          <input #searchkw type="text" class="form-control" width="20" placeholder="搜尋這個商店..." (keyup.enter)="enter(searchkw.value)">
+         </div>
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">分類</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1"><a routerLink="/shop" (click)="click(' ')" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/man" (click)="click('man')" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/woman" (click)="click('woman')" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/boy" (click)="click('boy')" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a routerLink="/shop/girl" (click)="click('girl')" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(0)" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(1)" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(2)" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(3)" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(4)" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
             </ul>
           </div>
-
+          <div class="border p-4 rounded mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">排序</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1"><a href="javascript:void(0)" (click)="sort_click('none')" class="d-flex"><span class="ml-auto"></span>預設排序<span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="sort_click('ascname')" class="d-flex"><span class="ml-auto">名稱，由小到大</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="sort_click('decname')" class="d-flex"><span class="ml-auto">名稱，由大到小</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="sort_click('ascprice')" class="d-flex"><span class="ml-auto">價格，由低到高</span> <span class="text-black ml-auto"></span></a></li>
+              <li class="mb-1"><a href="javascript:void(0)" (click)="sort_click('decprice')" class="d-flex"><span class="ml-auto">價格，由高到低</span> <span class="text-black ml-auto"></span></a></li>
+            </ul>
+          </div>
           <!--<div class="border p-4 rounded mb-4">
             <div class="mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">價錢篩選</h3>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-        <a class="block-2-item" routerLink="/shop/man" (click)="click('man')">
+        <a class="block-2-item" (click)="click(1)">
           <figure class="image">
             <img src="assets/images/men.jpg" alt="" class="img-fluid">
           </figure>
@@ -114,7 +114,7 @@
         </a>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-        <a class="block-2-item" routerLink="/shop/woman" (click)="click('woman')">
+        <a class="block-2-item" (click)="click(2)">
           <figure class="image">
             <img src="assets/images/women.jpg" alt="" class="img-fluid">
           </figure>
@@ -125,7 +125,7 @@
         </a>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-        <a class="block-2-item" routerLink="/shop/boy" (click)="click('boy')">
+        <a class="block-2-item" (click)="click(3)">
           <figure class="image">
             <img src="assets/images/chia-ming.png" alt="" class="img-fluid">
           </figure>
@@ -136,7 +136,7 @@
         </a>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-        <a class="block-2-item" routerLink="/shop/girl" (click)="click('girl')">
+        <a class="block-2-item" (click)="click(4)">
           <figure class="image">
             <img src="assets/images/children.jpg" alt="" class="img-fluid">
           </figure>
