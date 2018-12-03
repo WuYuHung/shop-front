@@ -66,6 +66,9 @@ export class RegisterComponent implements OnInit {
       response => {
         console.log(response); // test : show the http response
         // name error response
+        if (response === 0) {
+          alert('後端未開啟');
+        }
         if (response.error.errors.name !== undefined) {
           this.nameError = response.error.errors.name[0];
         } else {

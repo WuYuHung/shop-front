@@ -19,10 +19,10 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
   }
 
   isLogin() {
+    const token = localStorage.getItem('token');
     return localStorage.getItem('token');
-  } // 到時候去header，寫<登入 註冊>等tag
+  }
 }
