@@ -65,6 +65,10 @@ export class PayComponent implements OnInit {
     localStorage.clear();
   }
 
+  checkCoupon() {
+    
+  }
+
 }
 
 
