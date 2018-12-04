@@ -1,48 +1,49 @@
-  <div class="site-wrap">
+<div class="site-wrap">
 
 
-    <div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
-        </div>
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
       </div>
     </div>
+  </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row mb-5" ng-controller="nigger">
-          <form class="col-md-12" method="post">
-            <div class="site-blocks-table">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-                    <th class="product-remove">移除</th>
+  <div class="site-section">
+    <div class="container">
+      <div class="row mb-5" ng-controller="nigger">
+        <form class="col-md-12" method="post">
+          <div class="site-blocks-table">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="product-thumbnail">商品圖片</th>
+                  <th class="product-name">商品名稱</th>
+                  <th class="product-price">價格</th>
+                  <th class="product-quantity">數量</th>
+                  <th class="product-total">總價</th>
+                  <th class="product-remove">移除</th>
 
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of cartList">
-                      <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}" alt="Image placeholder"
-                        class="img-fluid"></td>
-                      <td class="product-name">{{item.name}}</td>
-                      <td>{{item.price}}</td>
-                      <td>
-                      <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
-                      <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity" [ngModelOptions]="{standalone: true}">
-                      <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
-                      </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartList">
+                  <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                      alt="Image placeholder" class="img-fluid"></td>
+                  <td class="product-name">{{item.name}}</td>
+                  <td>{{item.price}}</td>
+                  <td>
+                    <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
+                    <input class="col-md-2" style="text-align: center" type="text" [(ngModel)]="item.quantity"
+                      [ngModelOptions]="{standalone: true}">
+                    <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                  </td>
 
-                      <td>{{item.quantity * item.price}}</td>
-                      <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                    </tr>
+                  <td>{{item.quantity * item.price}}</td>
+                  <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                </tr>
 
-                    <!--<td class="product-thumbnail">
+                <!--<td class="product-thumbnail">
                       <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
@@ -90,66 +91,65 @@
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                 -->
-                </tbody>
-              </table>
-            </div>
-          </form>
-        </div>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
 
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row mb-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row mb-5">
             <!--  <div class="col-md-6 mb-3 mb-md-0">
                 <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
               </div>
             -->
-              <div class="col-md-6">
-                <button class="btn btn-primary btn-sm btn-block" routerLink="/shop" >繼續購物</button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block" (click)="clearCart()">清空購物車</button>
-              </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary btn-sm btn-block" routerLink="/shop">繼續購物</button>
             </div>
-
+            <div class="col-md-6">
+              <button class="btn btn-outline-primary btn-sm btn-block" (click)="clearCart()">清空購物車</button>
+            </div>
           </div>
-          <div class="col-md-6 pl-5">
-            <div class="row justify-content-end">
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">商品總價</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">小計</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">{{totalCost()}}</strong>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                      <span class="text-black">手續費</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                      <strong class="text-black">{{deliver()}}  (+</strong>
-                    </div>
-                  </div>
-                <div class="row mb-5">
-                  <div class="col-md-6">
-                    <span class="text-black">總價</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">{{total()}}</strong>
-                  </div>
-                </div>
 
-                <div class="row">
-                  <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" (click)="checkout()">結帳</button>
-                  </div>
+        </div>
+        <div class="col-md-6 pl-5">
+          <div class="row justify-content-end">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-md-12 text-right border-bottom mb-5">
+                  <h3 class="text-black h4 text-uppercase">商品總價</h3>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-black">小計</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <strong class="text-black">{{totalCost()}}</strong>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-black">手續費</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <strong class="text-black">{{deliver()}} (+</strong>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <span class="text-black">總價</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <strong class="text-black">{{total()}}</strong>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-primary btn-lg py-3 btn-block" (click)="checkout()">結帳</button>
                 </div>
               </div>
             </div>
@@ -158,3 +158,4 @@
       </div>
     </div>
   </div>
+</div>

@@ -22,4 +22,7 @@ export class ShopService {
    getsort(kind, method) {
      return this.httpClient.get('http://localhost:8000/api/products/sort/' + method + '/' +  kind);
    }
+   postProduct(order_product){
+     return this.httpClient.post('http://localhost:8000/api/order/product', order_product);
+   }
 }
