@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -15,6 +15,15 @@ export class AuthService {
   login(user) {
     console.log(user);
     return this.httpClient.post('http://localhost:8000/api/login', user);
+  }
+
+  user_info() {
+    const tokenParse = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${tokenParse}`
+    });
+    console.log(headers);
+    return this.httpClient.get('http://localhost:8000/api/user', { headers: headers });
   }
 
   logout() {
