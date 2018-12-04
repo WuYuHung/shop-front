@@ -16,6 +16,10 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
+    path: 'shoprate/:kw',
+    component: ShopRateComponent
+  },
+  {
     path: '',
     component: HomeComponent
   },

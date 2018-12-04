@@ -17,7 +17,7 @@ export class ShopSingleComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.ShopService.getSingle(this.id).subscribe(data => { this.product = data; console.log(data); });
+    this.ShopService.getSingle(this.id).subscribe(data => { this.product = data; this.product.quantity = 1; console.log(data); });
     for (let i = 0, len = localStorage.length; i < len; i++) {
       if(localStorage.key(i) != 'token'){
         if (JSON.parse(localStorage.getItem(localStorage.key(i))).id == this.id){
@@ -29,7 +29,6 @@ export class ShopSingleComponent implements OnInit {
   addData() {
     if (!this.check) {
       this.product['paid'] = false;
-      this.product['quantity'] = 1;
       localStorage.setItem(this.id.toString(), JSON.stringify(this.product));
     } else {
       localStorage.removeItem(this.id.toString());
@@ -38,7 +37,7 @@ export class ShopSingleComponent implements OnInit {
       this.router.navigate(['/shopsingle/' + this.id]);
   }
   ChangingValue(event) {
-    const amount = event.target.value;
-    this.product.amount = Number(amount);
+    const quantity = event.target.value;
+    this.product.quantity = Number(quantity);
   }
 }

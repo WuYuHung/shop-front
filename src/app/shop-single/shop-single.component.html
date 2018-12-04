@@ -30,7 +30,7 @@
                 <option>{{ i }}</option>
               </ng-container>
             </select>
-            &nbsp;&nbsp; 總計：{{ product.price*2 }}
+            &nbsp;&nbsp; 總計：{{ product.price*product.quantity }}
             <br><br><br>
             <button (click)="addData()" *ngIf="!check" class="btn btn-sm btn-secondary">加入購物清單</button>
             <button (click)="addData()" *ngIf="check" class="btn btn-sm btn-primary">從購物清單移除</button>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +12,9 @@ export class CartComponent implements OnInit {
   public products: number;
   cartList: any;
   couponid: any;
+  get isLogin() {
+    return this.authService.isLogin();
+  }
   findIndex = function (id) {
     var index = -1;
     this.cartList.forEach(function (item, key) {
@@ -75,7 +80,7 @@ export class CartComponent implements OnInit {
   total = function() {
     return this.totalCost() + this.deliver();
   }
-  constructor() {
+  constructor(private router: Router, private authService: AuthService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -113,6 +118,14 @@ export class CartComponent implements OnInit {
       }
     }
     location.reload();
+  }
+  checkout() {
+    if (this.isLogin) {
+      this.router.navigate(['/pay']);
+    } else {
+      alert('請先登入');
+      this.router.navigate(['/login']);
+    }
   }
 }
 

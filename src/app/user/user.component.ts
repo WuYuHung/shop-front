@@ -12,7 +12,20 @@ export class UserComponent implements OnInit {
   code;
   key = "Mike is thin";
   cartList: any;
+  image64 = '';
 
+  uploadfile(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.image64 = reader.result;
+    console.log(this.image64);
+  }
   findIndex = function(id) {
     var index = -1;
     this.cartList.forEach(function(item, key) {

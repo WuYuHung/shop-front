@@ -35,7 +35,7 @@
                 <div class="col-md">
                   <label class="text-black store-Address">密碼</label>
                   <input type="password" class="form-control store-Address" name="password" placeholder="password"
-                    [(ngModel)]="user.password" required>
+                    [(ngModel)]="user.password" (keyup.enter)="login()" required>
                 </div>
               </div>
               <div *ngIf="errorLogin" class="errorResponse store-Address">
@@ -43,7 +43,7 @@
               </div>
               <div class="form-group row">
                 <div class="col-lg-12">
-                  <button type="button" class="btn btn-primary btn-lg btn-block store-Address" (click)="login()">登入</button>
+                  <button type="button" class="btn btn-primary btn-lg btn-block store-Address" (click)="login()" >登入</button>
                 </div>
               </div>
 
