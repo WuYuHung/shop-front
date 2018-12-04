@@ -17,7 +17,10 @@
       <div class="col-6 col-md-4 order-3 order-md-3 text-right">
         <div class="site-top-icons">
           <ul>
-            <li><a routerLink="/user/TWK"><span class="icon icon-person"></span></a></li>
+            <li><a *ngIf="!isLogin" routerLink="register">註冊</a></li>
+            <li><a *ngIf="isLogin" (click)="logout()">登出</a></li>
+            <li><a *ngIf="!isLogin" routerLink="login"><span class="icon icon-person"></span></a></li>
+            <li><a *ngIf="isLogin" routerLink="user/:id"><span class="icon icon-person"></span></a></li>
             <li>
               <a routerLink="/cart" class="site-cart">
                 <span class="icon icon-shopping_cart"></span>
