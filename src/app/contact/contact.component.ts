@@ -12,7 +12,6 @@ export class ContactComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    require('src/assets/js/contact-email.js');
   }
 
   onSubmit(value) {

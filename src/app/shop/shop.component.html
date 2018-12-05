@@ -2,7 +2,7 @@
   <div class="bg-light py-3">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 mb-0"><a href=#>Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        <div class="col-md-12 mb-0"><a href=#>首頁</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">商品</strong></div>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
             <div *ngFor="let data of datas" class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shopsingle/{{data.id}}"><img src="#"
+                  <a href="/shopsingle/{{data.id}}"><img src="http://localhost:8000/images/shop/{{data.photo_path}}"
                       alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
