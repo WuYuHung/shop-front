@@ -13,8 +13,13 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
 import { HeaderComponent } from './header/header.component';
+import { BuylistComponent } from './buylist/buylist.component';
 
 const routes: Routes = [
+  {
+    path: 'buylist/:id',
+    component: BuylistComponent
+  },
   {
     path: 'shoprate/:kw',
     component: ShopRateComponent
