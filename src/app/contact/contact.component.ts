@@ -1,5 +1,5 @@
-declare var require: any;
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -7,15 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  message = [];
+  contact_message = {
+    lastname: '',
+    firstname: '',
+    email: '',
+    title: '',
+    message: ''
+  };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }
 
-  onSubmit(value) {
-    this.message.push(value.value);
-    console.log(this.message);
+  onSubmit() {
+    console.log(this.contact_message);
   }
 }
