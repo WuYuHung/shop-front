@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  id = 'Edward';
+  id = '';
   get isLogin() {
     return this.authService.isLogin();
   }

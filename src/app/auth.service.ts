@@ -20,10 +20,12 @@ export class AuthService {
   user_info() {
     const tokenParse = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${tokenParse}`
+      Authorization: `Bearer ${tokenParse}`
     });
     console.log(headers);
-    return this.httpClient.get('http://localhost:8000/api/user', { headers: headers });
+    return this.httpClient.get('http://localhost:8000/api/user', {
+      headers: headers
+    });
   }
 
   logout() {
@@ -33,5 +35,9 @@ export class AuthService {
   isLogin() {
     const token = localStorage.getItem('token');
     return localStorage.getItem('token');
+  }
+
+  contact(user) {
+    return this.httpClient.post('http://localhost:8000/api/sendemail', user);
   }
 }
