@@ -17,12 +17,9 @@
       <div class="col-md-6">
         <div class="profile-head">
           <h5>
-            {{userid}}
+            {{name}}
           </h5>
-          <h6>
-            Game Lab Owner
-          </h6>
-          <p class="proile-rating">Your Rating : <span>87/100</span></p>
+          <p class="proile-rating">Level : <span>87/100</span></p>
         </div>
       </div>
 
@@ -36,16 +33,8 @@
                 aria-selected="false">我的帳戶</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" id="buylist-tab" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
+              <a class="nav-link active" id="buylist-tab" routerLink="/buylist/{{id}}"data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
                 aria-selected="true">購買清單</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification"
-                aria-selected="false">通知</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="coupon-tab" data-toggle="tab" href="#coupon" role="tab" aria-controls="coupon"
-                aria-selected="false">我的優惠券</a>
             </li>
           </ul>
         </div>
@@ -58,7 +47,7 @@
                 <label>User Id</label>
               </div>
               <div class="col-md-6">
-                <p>Kshiti123</p>
+                <p>{{id}}</p>
               </div>
             </div>
             <div class="row">
@@ -66,7 +55,7 @@
                 <label>Name</label>
               </div>
               <div class="col-md-6">
-                <p>Kshiti Ghelani</p>
+                <p>{{name}}</p>
               </div>
             </div>
             <div class="row">
@@ -74,7 +63,7 @@
                 <label>Email</label>
               </div>
               <div class="col-md-6">
-                <p>kshitighelani@gmail.com</p>
+                <p>{{email}}</p>
               </div>
             </div>
             <div class="row">
@@ -82,7 +71,7 @@
                 <label>Phone</label>
               </div>
               <div class="col-md-6">
-                <p>123 456 7890</p>
+                <p>{{phone}}</p>
               </div>
             </div>
             <div class="row">
@@ -90,24 +79,11 @@
                 <label>Birthday</label>
               </div>
               <div class="col-md-6">
-                <p>1987/08/07</p>
+                <p>{{birthdate}}</p>
               </div>
             </div>
           </div>
-          <div class="tab-pane fade fade show active" id="buylist" role="tabpanel" aria-labelledby="buylist-tab">
-            <ul class="nav nav-pills nav-fill">
 
-              <li class="nav-item">
-                <a class="nav-link" id="unout-tab" data-toggle="tab" href="#unout" (click)="unout()" role="tab">已付款</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="unget-tab" data-toggle="tab" href="#unget" (click)="undo()" role="tab">出貨</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish" (click)="undo()" role="tab">完成</a>
-              </li>
-            </ul>
-          </div>
           <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
             <div class="row">
             </div>

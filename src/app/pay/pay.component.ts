@@ -93,7 +93,7 @@ export class PayComponent implements OnInit {
 
     this.authService.user_info().subscribe(data => {
       this.pay = {
-        user_id: data.id,
+        user_id: data['id'],
         couponid: this.couponid,
         amount: this.Total(),
         first_name: this.c_fname,
@@ -110,11 +110,12 @@ export class PayComponent implements OnInit {
       console.log(this.pay);
 
       this.ShopService.postOrder(this.pay).subscribe(datas => {
-        console.log(datas.order_id);
+
+        console.log(datas['order_id']);
 
         for (let i = 0; i < this.cartList.length; i++) {
           let products = {
-            order_id: datas.order_id,
+            order_id: datas['order_id'],
             product_id: this.cartList[i].id,
             quantity: this.cartList[i].quantity
           };

@@ -19,10 +19,13 @@ export class ShopService {
   getUser(id) {
     return this.httpClient.get('http://localhost:8000/api/user/' + id);
   }
-   getsort(kind, method) {
-     return this.httpClient.get('http://localhost:8000/api/products/sort/' + method + '/' +  kind);
-   }
-   postProduct(order_product){
-     return this.httpClient.post('http://localhost:8000/api/order/product', order_product);
-   }
+  getsort(kind, method) {
+    return this.httpClient.get('http://localhost:8000/api/products/sort/' + method + '/' + kind);
+  }
+  postProduct(order_product) {
+    return this.httpClient.post('http://localhost:8000/api/order/product', order_product);
+  }
+  getbuylist(status) {
+    return this.httpClient.get(`http://localhost:8000/api/user/orders/${status}/products`);
+  }
 }
