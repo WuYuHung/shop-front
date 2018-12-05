@@ -120,11 +120,16 @@ export class CartComponent implements OnInit {
     location.reload();
   }
   checkout() {
-    if (this.isLogin) {
+    if (this.isLogin && localStorage.length > 1) {
       this.router.navigate(['/pay']);
     } else {
-      alert('請先登入');
-      this.router.navigate(['/login']);
+      if (this.isLogin){
+        alert('請採購至少一項商品');
+        this.router.navigate(['/shop']);
+      } else {
+        alert('請先登入');
+        this.router.navigate(['/login']);
+      }
     }
   }
 }

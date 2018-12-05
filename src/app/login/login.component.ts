@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data.token) {
           localStorage.setItem('token', data.token);
-          this.router.navigate(['/']);
+          window.location.href = '/';
         } else {
           alert('fail');
         }

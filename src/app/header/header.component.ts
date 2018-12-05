@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopComponent } from '../shop/shop.component';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -9,13 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  id = 'Edward';
+  id: string;
   get isLogin() {
     return this.authService.isLogin();
   }
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.user_info().subscribe(data => {
+      this.id = data['name'];
+    });
+  }
 
   logout() {
     this.authService.logout();
