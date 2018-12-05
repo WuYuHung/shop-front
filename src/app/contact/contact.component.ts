@@ -17,7 +17,8 @@ export class ContactComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onSubmit() {
     console.log(this.contact_message);
