@@ -9,9 +9,9 @@ import { TouchSequence } from 'selenium-webdriver';
 export class BuylistComponent implements OnInit {
 
   order_id: any;
-  finishlist: [];
-  sendlist: [];
-  paylist: [];
+  finishlist: any;
+  sendlist: any;
+  paylist: any;
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
