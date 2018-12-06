@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,16 +12,26 @@ export class ContactComponent implements OnInit {
     lastname: '',
     firstname: '',
     email: '',
-    title: '',
+    subject: '',
     message: ''
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
     console.log(this.contact_message);
+    this.authService.contact(this.contact_message).subscribe((data: any) => {
+      console.log(data);
+      if (data.success) {
+        // contact success : navigate to 首頁
+        alert('感謝您的意見');
+        this.router.navigate(['/']);
+      } else {
+        // contact fail
+        alert('fail to register');
+      }
+    });
   }
 }
