@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from './poducts';
 import { ShopService } from '../shop.service';
 import { AuthService } from '../auth.service';
+import { CouponService } from '../coupon.service';
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
@@ -25,10 +26,11 @@ export class PayComponent implements OnInit {
   deliver: any;
   Total: any;
   pay: any;
-
+  coupon: any;
+  couponlist: any;
 
   cartList: any;
-  constructor(private ShopService: ShopService, private authService: AuthService) {
+  constructor(private ShopService: ShopService, private authService: AuthService, private couponService: CouponService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -50,6 +52,10 @@ export class PayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.couponService.getcoupon().subscribe(data => {
+      this.couponlist = data;
+      console.log(data);
+    });
   }
 
   check() {
@@ -63,6 +69,9 @@ export class PayComponent implements OnInit {
 
 
 
+  }
+  ChangingCoupon(event) {
+    this.couponid = event.target.value;
   }
 
   Pay() {

@@ -28,4 +28,7 @@ export class ShopService {
   getbuylist(status) {
     return this.httpClient.get(`http://localhost:8000/api/user/orders/${status}/products`);
   }
+  getcoupon() {
+    return this.httpClient.get('http://localhost:8000/api/user/coupons');
+  }
 }
