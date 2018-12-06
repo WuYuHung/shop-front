@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from './poducts';
+import { Router } from '@angular/router';
 import { ShopService } from '../shop.service';
 import { AuthService } from '../auth.service';
 import { CouponService } from '../coupon.service';
@@ -28,9 +29,10 @@ export class PayComponent implements OnInit {
   pay: any;
   coupon: any;
   couponlist: any;
+  errorpay = false;
 
   cartList: any;
-  constructor(private ShopService: ShopService, private authService: AuthService, private couponService: CouponService) {
+  constructor(private router: Router, private ShopService: ShopService, private authService: AuthService, private couponService: CouponService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -132,14 +134,26 @@ export class PayComponent implements OnInit {
             console.log(log);
           });
         }
-      });
+        if (!this.errorpay) {
+          window.location.href = '/thankyou';
+          for (let i = 0, len = localStorage.length; i < len; i++) {
+            if (localStorage.key(i) != 'token') {
+              localStorage.removeItem(localStorage.key(i));
+            }
+          }
+        }
+      },
+        response => {
+          console.log(response);
+          if (response.error.error != null) {
+            this.errorpay = true;
+          } else {
+            this.errorpay = false;
+          }
+        });
     }
     );
-    for (let i = 0, len = localStorage.length; i < len; i++) {
-      if (localStorage.key(i) != 'token') {
-        localStorage.removeItem(localStorage.key(i));
-      }
-    }
+
 
   }
 

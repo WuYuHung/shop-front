@@ -90,10 +90,11 @@
                 <label class="custom-control-label" for="private">同意本公司存取您所填寫之個人資料</label>
                 <div class="invalid-feedback">必須勾選</div>
               </div>
-
+              <div *ngIf="errorpay" class="errorResponse store-Address">
+                填寫資料不完全或格式有誤
+              </div>
               <div class="form-group">
-                <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="Pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
-                  routerLink="/thankyou">結帳</button>
+                <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="Pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null">結帳</button>
               </div>
             </form>
           </div>
