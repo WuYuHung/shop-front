@@ -99,7 +99,6 @@ export class CartComponent implements OnInit {
     json += ']';
     console.log(json);
     this.cartList = JSON.parse(json);
-    this.cartList = this.cartList.filter(t => !t.paid);
   }
 
   ngOnInit() {

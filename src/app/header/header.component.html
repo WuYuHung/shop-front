@@ -21,7 +21,7 @@
             <li><a *ngIf="isLogin" href="javascript:void(0)" (click)="logout()">登出</a></li>
             &nbsp;
             <li><a *ngIf="!isLogin" routerLink="login"><span class="icon icon-person"></span>&nbsp;請先登入</a></li>
-            <li><a *ngIf="isLogin" routerLink="user/:id"><span class="icon icon-person"></span>&nbsp;{{ id }}</a></li>
+            <li><a *ngIf="isLogin" routerLink="user"><span class="icon icon-person"></span>&nbsp;{{ name }}</a></li>
             &nbsp;
             <li>
               <a routerLink="/cart" class="site-cart">

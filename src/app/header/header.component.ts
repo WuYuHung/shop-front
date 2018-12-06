@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   id = '';
+  name = '';
   get isLogin() {
     return this.authService.isLogin();
   }
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user_info().subscribe(data => {
-      this.id = data['name'];
+      this.name = data['name'];
+      this.id = data['id'];
     });
   }
 

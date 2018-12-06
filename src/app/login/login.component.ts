@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data.token) {
           localStorage.setItem('token', data.token);
-          window.location.href = '/';
+          window.history.back();
         } else {
           alert('fail');
         }
