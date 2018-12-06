@@ -1,0 +1,91 @@
+<div class="tab-pane fade fade show active" id="buylist" role="tabpanel" aria-labelledby="buylist-tab">
+  <ul class="nav nav-pills ">
+
+    <li class="nav-item">
+      <a class="nav-link" id="unout-tab" data-toggle="tab" href="#pay" role="tab">已付款</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="unget-tab" data-toggle="tab" href="#send"  role="tab">出貨</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="finish-tab" data-toggle="tab" href="#finish"  role="tab">完成</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="tab-content">
+  <div class="tab-pane fade" id="pay" role="tabpanel">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="product-day">購買日期</th>
+          <th class="product-thumbnail">商品圖片</th>
+          <th class="product-name">商品名稱</th>
+          <th class="product-price">價格</th>
+          <th class="product-quantity">數量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of paylist">
+          <td class="product-name">{{item.created_at}}</td>
+          <td class="product-thumbnail"> <img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+              class="img-fluid" width="200" ㄔㄛ></td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.quantity}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="send" role="tabpanel" aria-labelledby="unpaid-tab">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="product-day">購買日期</th>
+          <th class="product-thumbnail">商品圖片</th>
+          <th class="product-name">商品名稱</th>
+          <th class="product-price">價格</th>
+          <th class="product-quantity">數量</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of sendlist">
+              <td class="product-name">{{item.created_at}}</td>
+              <td class="product-thumbnail"> <img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+                  class="img-fluid" width="200" ㄔㄛ></td>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+
+            </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="unpaid-tab">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="product-day">購買日期</th>
+          <th class="product-thumbnail">商品圖片</th>
+          <th class="product-name">商品名稱</th>
+          <th class="product-price">價格</th>
+          <th class="product-quantity">數量</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of finishlist">
+              <td class="product-name">{{item.created_at}}</td>
+              <td class="product-thumbnail"> <img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+                  class="img-fluid" width="200" ㄔㄛ></td>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+
+            </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

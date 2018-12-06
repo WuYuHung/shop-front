@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from './poducts';
 import { ShopService } from '../shop.service';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
@@ -28,7 +28,7 @@ export class PayComponent implements OnInit {
 
 
   cartList: any;
-  constructor(private ShopService: ShopService) {
+  constructor(private ShopService: ShopService, private authService: AuthService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -69,9 +69,9 @@ export class PayComponent implements OnInit {
 
     for (let i = 0; i < this.cartList.length; i++) {
       this.cartList[i]['paid'] = true;
+      console.log(this.cartList[i].id);
       localStorage.setItem(localStorage.key(i), JSON.stringify(this.cartList[i]));
     }
-    // localStorage.clear();
 
 
     this.totalCost = function (): number {
@@ -79,7 +79,7 @@ export class PayComponent implements OnInit {
       this.cartList.forEach(t => total += t.price * t.quantity);
       return total;
     };
-    this.deliver = function(): number {
+    this.deliver = function (): number {
       let total = 0;
       let tmp = this.totalCost();
       if (tmp <= 10000) {
@@ -87,30 +87,51 @@ export class PayComponent implements OnInit {
       }
       return total;
     };
-    this.Total = function(): number {
+    this.Total = function (): number {
       return this.totalCost() + this.deliver();
     };
-    this.pay = {
-      user_id: 1,
-      couponid: this.couponid,
-      amount: this.Total(),
-      first_name: this.c_fname,
-      last_name: this.c_lname,
-      company_name: this.c_companyname,
-      address: this.c_address,
-      email: this.c_email_address,
-      phone: this.c_phone,
-      status: 'pay'
-    };
-    if(this.pay.couponid == null)
-    {
-      this.pay.couponid = null;
-    }
-    console.log(this.pay);
 
-    this.ShopService.postOrder(this.pay).subscribe(data => {
-      console.log(data);
-    });
+    this.authService.user_info().subscribe(data => {
+      this.pay = {
+        user_id: data['id'],
+        couponid: this.couponid,
+        amount: this.Total(),
+        first_name: this.c_fname,
+        last_name: this.c_lname,
+        company_name: this.c_companyname,
+        address: this.c_address,
+        email: this.c_email_address,
+        phone: this.c_phone,
+        status: 'pay'
+      };
+      if (this.pay.couponid == null) {
+        this.pay.couponid = null;
+      }
+      console.log(this.pay);
+
+      this.ShopService.postOrder(this.pay).subscribe(datas => {
+
+        console.log(datas['order_id']);
+
+        for (let i = 0; i < this.cartList.length; i++) {
+          let products = {
+            order_id: datas['order_id'],
+            product_id: this.cartList[i].id,
+            quantity: this.cartList[i].quantity
+          };
+          this.ShopService.postProduct(products).subscribe(log => {
+            console.log(log);
+          });
+        }
+      });
+    }
+    );
+    for (let i = 0, len = localStorage.length; i < len; i++) {
+      if (localStorage.key(i) != 'token') {
+        localStorage.removeItem(localStorage.key(i));
+      }
+    }
+
   }
 
 

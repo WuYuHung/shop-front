@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CookieService } from 'ngx-cookie-service';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: "app-user",
   templateUrl: "./user.component.html",
@@ -13,7 +13,11 @@ export class UserComponent implements OnInit {
   key = "Mike is thin";
   cartList: any;
   image64 = '';
-
+  name: string;
+  phone: any;
+  email: any;
+  birthdate: any;
+  id: any;
   uploadfile(e) {
     var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
     var pattern = /image-*/;
@@ -55,8 +59,18 @@ export class UserComponent implements OnInit {
     }
   };
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(private authService: AuthService) {}
+  ngOnInit() {
+    this.authService.user_info().subscribe(data => {
+      this.name = data['name'];
+      this.id = data['id'];
+      this.email = data['email'];
+      this.birthdate = data['birthdate'];
+      this.phone = data['phone'];
+      console.log(data);
+    }
+   );
+  }
   onclick() {
     if (this.code === this.key) {
       alert("pass");

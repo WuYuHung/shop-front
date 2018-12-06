@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
+import { BuylistComponent } from './buylist/buylist.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ShopRateComponent } from './shop-rate/shop-rate.component';
     RegisterComponent,
     LoginComponent,
     ShopRateComponent,
+    BuylistComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
