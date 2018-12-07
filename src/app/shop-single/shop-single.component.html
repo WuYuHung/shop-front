@@ -1,29 +1,35 @@
-  <div class="site-wrap">
-    <div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0"><a href="">首頁</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">商品資訊</strong></div>
-        </div>
+<div class="site-wrap">
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="">首頁</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">商品資訊</strong></div>
       </div>
     </div>
+  </div>
 
+
+  <div *ngIf="!nullproduct()">
+    <p style="color: red;font-size:50px; text-align: center">無此商品</p>
+  </div>
+  <div *ngIf="nullproduct()">
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
         <div class="row">
-        <div class="col-md-6">
+          <div class="col-md-6">
             <div class="col-sm-6 col-lg-8 mb-4" data-aos="fade-up">
                 <figure class="block-4-image">
-                  <img src="http://localhost:8000/images/shop/{{product.photo_path}}" alt="Image placeholder"
+                  <img src="http://localhost:8000/storage/{{product.photo_path}}" alt="Image placeholder"
                       class="img-fluid">
                 </figure>
-                <a href="/shop-rate/{{ id }}" style="font-size:30px;">商品評價：<b style="color:GoldenRod;">9.2</b><div style="font-size:60%">共來自92筆評價</div></a>
+                <a href="/shoprate/{{ id }}" style="font-size:30px;">商品評價：<b style="color:GoldenRod;">{{ averate }}</b><div style="font-size:60%">共來自 {{ ratecount }} 筆評價</div></a>
             </div>
-        </div>
-        <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
             <h2>{{product.name}}</h2>
             <h3>{{product.description}}</h3>
-            <p style="font-size:160%;" class="text-primary font-weight-bold">會員價 &nbsp;&nbsp;${{product.price}}</p>
-            <p style="font-size:80%;">(原價 &nbsp;&nbsp;${{product.price*1.2}})</p>
+            <p style="font-size:160%;" class="text-danger font-weight-bold">★★★ 尊榮會員價 &nbsp;&nbsp;${{product.price * 0.75}} ★★★</p>
+            <p style="font-size:160%;" class="text-primary font-weight-bold">會員價 &nbsp;&nbsp;${{product.price * 0.9}}</p>
+            <p style="font-size:80%;">(原價 &nbsp;&nbsp;${{product.price}})</p>
             數量：<select style="width: 70px" (change)="ChangingValue($event)" [value]='1'>
               <ng-container *ngFor="let i of toten;">
                 <option>{{ i }}</option>
@@ -36,8 +42,9 @@
 
             <br><br>
             <button routerLink="/shop" class="btn btn-sm btn-info">回商品目錄</button>&nbsp;&nbsp;
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

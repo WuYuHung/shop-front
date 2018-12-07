@@ -57,6 +57,9 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         if (data.success) {
           // register success : navigate to login
+          if (this.authService.isLogin()) {
+            alert('你已創立一個新用戶，如需登入新帳號請先登出目前帳號');
+          }
           this.router.navigate(['/login']);
         } else {
           // register fail : 應該是後端那裏失敗??

@@ -1,0 +1,59 @@
+<div class="site-wrap">
+<div class="bg-light py-3">
+   <div class="container">
+      <div class="center">
+         <div class="col-md-12 mb-0"><a href="index.html">首頁</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">購物車</a>
+            <span class="mx-2 mb-0">/</span> <strong class="text-black">結帳</strong>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="site-section">
+<div class="container">
+   <div class="row">
+   <div class="col-md-6">
+         <h2 class="h3 mb-3 text-black">{{ productName }} 評分資訊</h2>
+        <h2 > 平均評價：<b [ngClass]="{'text-danger': averate >= 5, 'text-success': averate < 5}">{{ averate }}</b></h2>
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th class="product-name">時間</th>
+                  <th class="product-price">評分者</th>
+                  <th class="product-quantity">評分</th>
+                  <th class="product-total">評分原由</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of ratelist">
+                  <td class="product-name">{{item.created_at}}</td>
+                  <td>{{item.name}}</td>
+                  <td><b [ngClass]="{'text-danger': item.rating >= 5, 'text-success': item.rating < 5}">
+                     {{item.rating}}
+                  </b></td>
+                  <td>{{item.description}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="col-md-6">
+         <h2 class="h3 mb-3 text-black">填寫你的評價</h2>
+         <div class="p-3 p-lg-5 border">
+            <div class="form-group row">
+              <div class="col-md-12">
+                評分：<select style="width: 70px" (change)="ChangingValue($event)" [value]='10'>
+              <ng-container *ngFor="let i of toten;">
+                <option>{{ i }}</option>
+              </ng-container>
+            </select><br><br>
+            <label for="c_companyname" class="text-black">評分原由 </label><br>
+                <textarea type="text" cols="30" rows="7" class="form-control" id="c_companyname" name="c_companyname" [(ngModel)]="reason">評分原由</textarea>
+              <div class="form-group"><br>
+              <h6 *ngIf="isLogin == null" style="color:red">✗請登入以進行評價</h6>
+                         <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="submit()" [disabled]="isLogin == null">送出</button>
+                      </div>
+              </div>
+          </div>
+         </div>
+      </div>
+   </div>
+</div>

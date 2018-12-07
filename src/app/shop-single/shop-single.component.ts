@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild  } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ShopService } from '../shop.service';
 
@@ -7,20 +7,37 @@ import { ShopService } from '../shop.service';
   templateUrl: './shop-single.component.html',
   styleUrls: ['./shop-single.component.css']
 })
-
 export class ShopSingleComponent implements OnInit {
   check = false;
   id: number;
   product: any;
+  ratelist: any;
+  averate: any;
+  ratecount: any;
   toten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  constructor(private router: Router, private route: ActivatedRoute, private ShopService: ShopService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private ShopService: ShopService
+  ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
+    this.ShopService.getrate(this.id).subscribe(data => {
+      this.ratelist = data;
+      let totalrate = 0;
+      for (let i = 0; i < this.ratelist.length; i++) {
+        totalrate += data[i]['rating'];
+      }
+      this.averate = (totalrate / this.ratelist.length).toFixed(1);
+      this.ratecount = this.ratelist.length;
+    });
     this.ShopService.getSingle(this.id).subscribe(data => { this.product = data; this.product.quantity = 1; console.log(data); });
     for (let i = 0, len = localStorage.length; i < len; i++) {
-      if(localStorage.key(i) != 'token') {
-        if (JSON.parse(localStorage.getItem(localStorage.key(i))).id == this.id) {
+      if (localStorage.key(i) != 'token') {
+        if (
+          JSON.parse(localStorage.getItem(localStorage.key(i))).id == this.id
+        ) {
           this.check = true;
         }
       }
@@ -33,10 +50,18 @@ export class ShopSingleComponent implements OnInit {
       localStorage.removeItem(this.id.toString());
     }
     this.check = !this.check;
-      this.router.navigate(['/shopsingle/' + this.id]);
+    this.router.navigate(['/shopsingle/' + this.id]);
   }
   ChangingValue(event) {
     const quantity = event.target.value;
     this.product.quantity = Number(quantity);
+  }
+
+  nullproduct() {
+    if (this.product == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

@@ -16,7 +16,12 @@ export class LoginComponent implements OnInit {
   errorLogin = false;
   constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.authService.isLogin()) {
+      this.router.navigate(['/user/:id']);
+    } else {
+    }
+  }
 
   login() {
     // 帳號密碼的檢查
@@ -25,7 +30,8 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data.token) {
           localStorage.setItem('token', data.token);
-          window.location.href = '/';
+          window.history.back();
+          location.reload();
         } else {
           alert('fail');
         }
