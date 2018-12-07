@@ -20,8 +20,7 @@ export class ContactComponent implements OnInit {
     email: 'g2esportsshoes@gmail.com',
     subject:
       '來自' +
-      this.contact_message.lastname +
-      this.contact_message.firstname +
+      this.contact_message.email +
       '的訊息',
     data: this.contact_message.data
   };
@@ -34,13 +33,13 @@ export class ContactComponent implements OnInit {
     console.log(this.contact_message);
     this.user_message.subject =
       '來自' +
-      this.contact_message.lastname +
-      this.contact_message.firstname +
+    this.contact_message.email +
       '的訊息 : ' +
       this.contact_message.subject;
     this.user_message.data = this.contact_message.data;
 
     console.log(this.user_message);
+    this.contact_message.data = '感謝您的聯絡，我們將會盡速回覆您！';
     this.authService.contact(this.contact_message).subscribe((data: any) => {
       console.log(data);
       if (data.success) {
