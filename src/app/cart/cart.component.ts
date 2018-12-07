@@ -12,8 +12,10 @@ export class CartComponent implements OnInit {
   public products: number;
   cartList: any;
   couponid: any;
-  level = 0;
-  level2 = 0.75;
+  is_vip: any;
+  discount = 100;
+
+
   get isLogin() {
     return this.authService.isLogin();
   }
@@ -49,6 +51,11 @@ export class CartComponent implements OnInit {
     if (index != -1) {
       this.cartList[index].quantity++;
     }
+    let item = localStorage.getItem(id);
+    let itemjson = JSON.parse(item);
+    itemjson['quantity']++;
+    localStorage.setItem(id, JSON.stringify(itemjson));
+    console.log(itemjson);
   };
   reduceOne = function (id) {
     var index = this.findKey(id);
@@ -65,6 +72,11 @@ export class CartComponent implements OnInit {
         }
       }
     }
+    let item1 = localStorage.getItem(id);
+    let itemjson = JSON.parse(item1);
+    itemjson['quantity']--;
+    localStorage.setItem(id, JSON.stringify(itemjson));
+    console.log(itemjson);
   };
   totalCost = function () {
     let total = 0;
@@ -74,29 +86,29 @@ export class CartComponent implements OnInit {
   deliver = function () {
     let total = 0;
     let tmp = this.totalCost();
-    if (tmp <= 10000){
+    if (tmp <= 10000) {
       total = 60;
     }
     return total;
   };
-  total = function() {
+  total = function () {
     return this.totalCost() + this.deliver();
   }
   constructor(private router: Router, private authService: AuthService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
-      if (localStorage.key(i) == 'token'){
+      if (localStorage.key(i) == 'token') {
         minus = 2;
       }
     }
     for (let i = 0, len = localStorage.length; i < len; i++) {
       if (localStorage.key(i) != 'token') {
-      json += localStorage.getItem(localStorage.key(i)) + '';
-     if (i !== len - minus) {
-      json += ',';
-     }
-    }
+        json += localStorage.getItem(localStorage.key(i)) + '';
+        if (i !== len - minus) {
+          json += ',';
+        }
+      }
     }
     json += ']';
     console.log(json);
@@ -104,6 +116,13 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.user_info().subscribe(data => {
+      if (data['is_vip'] == true) {
+        this.discount = 75;
+      } else {
+        this.discount = 90;
+      }
+    });
   }
   check() {
     if (this.couponid === 'ponid-dinop' || this.couponid === 'g2esp-pse2g') {
@@ -124,7 +143,7 @@ export class CartComponent implements OnInit {
     if (this.isLogin && localStorage.length > 1) {
       this.router.navigate(['/pay']);
     } else {
-      if (this.isLogin){
+      if (this.isLogin) {
         alert('請採購至少一項商品');
         this.router.navigate(['/shop']);
       } else {
@@ -132,6 +151,9 @@ export class CartComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     }
+  }
+  changevalue(id) {
+    console.log(id);
   }
 }
 

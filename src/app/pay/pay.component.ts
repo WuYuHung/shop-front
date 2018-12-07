@@ -27,6 +27,8 @@ export class PayComponent implements OnInit {
   coupon: any;
   couponlist: any;
   errorpay = false;
+  is_vip: any;
+  discount = 100 ;
 
   cartList: any;
   constructor(private router: Router, private ShopService: ShopService, private authService: AuthService, private couponService: CouponService) {
@@ -59,6 +61,13 @@ export class PayComponent implements OnInit {
       alert('進入結帳頁面前請先登入');
       this.router.navigate(['/login']);
     }
+    this.authService.user_info().subscribe(data => {
+      if (data['is_vip'] == true) {
+         this.discount = 75;
+      } else {
+         this.discount = 90;
+      }
+});
   }
 
   check() {
@@ -86,12 +95,12 @@ export class PayComponent implements OnInit {
       );
     }
 
-    this.totalCost = function(): number {
+    this.totalCost = function (): number {
       let total = 0;
       this.cartList.forEach(t => (total += t.price * t.quantity));
       return total;
     };
-    this.deliver = function(): number {
+    this.deliver = function (): number {
       let total = 0;
       let tmp = this.totalCost();
       if (tmp <= 10000) {
@@ -99,7 +108,7 @@ export class PayComponent implements OnInit {
       }
       return total;
     };
-    this.Total = function(): number {
+    this.Total = function (): number {
       return this.totalCost() + this.deliver();
     };
 
@@ -114,11 +123,15 @@ export class PayComponent implements OnInit {
         address: this.c_address,
         email: this.c_email_address,
         phone: this.c_phone,
-        status: 'pay'
+        status: 'pay',
+        discount: this.discount,
       };
       if (this.pay.couponid == null) {
         this.pay.couponid = null;
+      } else {
+        this.discount = this.discount * 0.9;
       }
+      console.log(this.discount);
       console.log(this.pay);
 
       this.ShopService.postOrder(this.pay).subscribe(datas => {
@@ -138,24 +151,24 @@ export class PayComponent implements OnInit {
         if (!this.errorpay) {
           window.location.href = '/thankyou';
           for (let i = 0, len = localStorage.length; i < len; i++) {
-      if (localStorage.key(i) != 'token') {
-        delete_keys.push(localStorage.key(i));
-      }
-    }
-    for (let i = 0, len = delete_keys.length; i < len; i++) {
-        localStorage.removeItem(delete_keys[i]);
-      }
-    }
-        }
-      },
-        response => {
-          console.log(response);
-          if (response.error.error != null) {
-            this.errorpay = true;
-          } else {
-            this.errorpay = false;
+            if (localStorage.key(i) != 'token') {
+              delete_keys.push(localStorage.key(i));
+            }
           }
-        });
-    }
+          for (let i = 0, len = delete_keys.length; i < len; i++) {
+            localStorage.removeItem(delete_keys[i]);
+          }
+      }
+      },
+      response => {
+        console.log(response);
+        if (response.error.error != null) {
+          this.errorpay = true;
+        } else {
+          this.errorpay = false;
+        }
+      });
+  }
     );
+  }
   }
