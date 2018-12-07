@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
 import { BuylistComponent } from './buylist/buylist.component';
+import { EditComponent } from './edit/edit.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import { ChangepassComponent } from './changepass/changepass.component';
 
@@ -41,6 +43,8 @@ import { ChangepassComponent } from './changepass/changepass.component';
     LoginComponent,
     ShopRateComponent,
     BuylistComponent,
+    EditComponent,
+    ChangePasswordComponent,
     ForgetpassComponent,
     ChangepassComponent,
   ],

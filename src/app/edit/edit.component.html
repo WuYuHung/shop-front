@@ -1,0 +1,81 @@
+<div class="site-wrap">
+  <!-- 目前位置(可返回home) -->
+  <div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0">
+          <a href="index.html">首頁</a> <span class="mx-2 mb-0">/</span>
+          <strong class="text-black">編輯資料</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <!-- 表單標題 -->
+        <div class="col-md-12">
+          <h2 class="h3 mb-3 text-black store-Address">編輯資料</h2>
+        </div>
+
+        <!-- 表單 -->
+        <div class="col-md" ng-controller="MyCtrl">
+          <form name="form" id="myform" method="post" ngNativeValidate>
+            <div class="p-3 p-lg-5 border">
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address ">姓名</label>
+                  <input type="text" class="form-control store-Address" name="name" placeholder="姓名" [(ngModel)]="user.name"
+                    required />
+                  <div class="errorResponse store-Address">{{ nameError }}</div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">生日</label>
+                  <input type="date" class="form-control store-Address" name="birthdate" placeholder="生日日期" [(ngModel)]="user.birthdate"
+                    required />
+                  <div class="errorResponse store-Address">
+                    {{ birthdateError }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">地址</label>
+                  <input type="text" class="form-control store-Address" name="address" placeholder="地址" [(ngModel)]="user.address"
+                    required />
+                  <div class="errorResponse store-Address">
+                    {{ addressError }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md">
+                  <label class="text-black store-Address">手機</label>
+                  <input type="text" class="form-control store-Address" name="phone" placeholder="十碼電話號碼" [(ngModel)]="user.phone"
+                    pattern="\d{10}" required />
+                  <div class="errorResponse store-Address">
+                    {{ phoneError }}
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <button [disabled]="filled()" type="submit" class="btn btn-primary btn-lg btn-block store-Address"
+                    (click)="edit()">
+                    確認編輯
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

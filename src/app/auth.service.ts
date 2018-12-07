@@ -53,4 +53,30 @@ export class AuthService {
   contact(user) {
     return this.httpClient.post('http://localhost:8000/api/sendemail', user);
   }
+
+  edit(user) {
+    const tokenParse = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${tokenParse}`
+    });
+    console.log(headers);
+    return this.httpClient.post('http://localhost:8000/api/user', user, {
+      headers: headers
+    });
+  }
+
+  change(user) {
+    const tokenParse = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${tokenParse}`
+    });
+    console.log(headers);
+    return this.httpClient.post(
+      'http://localhost:8000/api/user/password',
+      user,
+      {
+        headers: headers
+      }
+    );
+  }
 }
