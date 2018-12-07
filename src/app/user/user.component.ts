@@ -21,6 +21,8 @@ export class UserComponent implements OnInit {
   id: any;
   kind: any;
   photo_path: any;
+  isvip: any;
+  address: any;
   uploadfile(e) {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
     const pattern = /image-*/;
@@ -80,10 +82,16 @@ export class UserComponent implements OnInit {
     this.authService.user_info().subscribe(data => {
       this.name = data['name'];
       this.id = data['id'];
+      this.address = data['address'];
       this.email = data['email'];
       this.birthdate = data['birthdate'];
       this.phone = data['phone'];
       this.photo_path = data['photo_path'];
+      if (data['is_vip']){
+        this.isvip = '尊爵VIP';
+      } else {
+        this.isvip = '一般會員';
+      }
       console.log(data);
     });
 

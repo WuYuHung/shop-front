@@ -29,7 +29,7 @@
       <tbody>
         <tr *ngFor="let item of paylist">
           <td class="product-name">{{item.created_at}}</td>
-          <td class="product-thumbnail"> <a routerLink="/shopsingle/{{ item.product_id }}"><img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+          <td class="product-thumbnail"> <a routerLink="/shopsingle/{{ item.product_id }}"><img src="http://localhost:8000/storage/{{item.photo_path}}" alt="Image placeholder"
               class="img-fluid" width="200" ㄔㄛ></a></td>
           <td>{{item.name}}</td>
           <td>{{item.price}}</td>
@@ -53,7 +53,7 @@
       <tbody>
           <tr *ngFor="let item of sendlist">
               <td class="product-name">{{item.created_at}}</td>
-              <td class="product-thumbnail"> <img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+              <td class="product-thumbnail"> <img src="http://localhost:8000/storage/{{item.photo_path}}" alt="Image placeholder"
                   class="img-fluid" width="200" ㄔㄛ></td>
               <td>{{item.name}}</td>
               <td>{{item.price}}</td>
@@ -77,7 +77,7 @@
       <tbody>
           <tr *ngFor="let item of finishlist">
               <td class="product-name">{{item.created_at}}</td>
-              <td class="product-thumbnail"> <img src="http://localhost:8000/images/shop/{{item.photo_path}}" alt="Image placeholder"
+              <td class="product-thumbnail"> <img src="http://localhost:8000/storage/{{item.photo_path}}" alt="Image placeholder"
                   class="img-fluid" width="200" ㄔㄛ></td>
               <td>{{item.name}}</td>
               <td>{{item.price}}</td>

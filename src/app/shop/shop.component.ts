@@ -57,7 +57,7 @@ export class ShopComponent implements OnInit {
                 if (p <= 2) {
                   this.page_list = [1, 2, 3, 4, 5];
                   if (max < 5){
-                    this.page_list = this.page_list.slice(max + 1);
+                    this.page_list = this.page_list.slice(0, max);
                   }
                 } else {
                   this.page_list = this.page_list.slice(Number(p) - 3, Number(p) + 2);

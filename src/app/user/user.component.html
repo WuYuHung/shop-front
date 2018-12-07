@@ -19,7 +19,7 @@
           <h5>
             {{name}}
           </h5>
-          <h5 class="proile-rating">Level : <span>一般會員</span></h5>
+          <h5 class="proile-rating">Level : <span>{{ isvip }}</span></h5>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
                 aria-selected="true">編輯資料</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" id="buylist-tab" routerLink="/changepw" data-toggle="tab" role="tab" aria-controls="buylist"
+              <a class="nav-link active" id="buylist-tab" routerLink="/changepassword" data-toggle="tab" role="tab" aria-controls="buylist"
                 aria-selected="true">更改密碼</a>
             </li>
           </ul>
@@ -50,10 +50,10 @@
         <div class="tab-content profile-tab" id="myTabContent">
             <div class="row">
               <div class="col-md-6">
-                <label>User Id</label>
+                <label>Address</label>
               </div>
               <div class="col-md-6">
-                <p>{{id}}</p>
+                <p>{{address}}</p>
               </div>
             </div>
             <div class="row">
