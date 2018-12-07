@@ -47,4 +47,7 @@ export class ShopService {
       headers: headers
     });
   }
+  getCate(id) {
+    return this.httpClient.get(`http://localhost:8000/api/categories`);
+  }
 }

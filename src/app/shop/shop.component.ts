@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
   sort_kind = 'all';
   page: any = 1;
   page_list: number[] = [];
+  cate_list: any;
   constructor(private route: ActivatedRoute, private ShopService: ShopService, private router: Router ) { }
 
   ngOnInit() {
@@ -43,7 +44,6 @@ export class ShopComponent implements OnInit {
             data1 => {
               this.datas = data1;
               if (cate != null && cate != 0) {
-                console.log('called', cate);
                 this.datas = this.datas.filter(t => t.category_id == Number(cate));
               }
               if (k != null) {
@@ -78,13 +78,11 @@ export class ShopComponent implements OnInit {
             for (let i = 1; i <= max; i++) {
               this.page_list.push(i);
             }
-            console.log(this.page_list, p);
             if (p <= 2){
               this.page_list = [1,2,3,4,5];
             } else {
             this.page_list = this.page_list.slice(Number(p) - 3, Number(p) + 2);
             }
-            console.log(this.page_list);
             this.datas = this.datas.slice((p - 1) * 30, (p * 30));
           }
         }
@@ -93,6 +91,13 @@ export class ShopComponent implements OnInit {
         this.sort_kind = so;
         this.page = p;
       });
+    });
+
+    /*////////////////////////
+              CATEGORYS
+    ///////////////////////*/
+    this.ShopService.getCate(this.category).subscribe(data => {
+      this.cate_list = data;
     });
   }
   generate_url(changed): string {
