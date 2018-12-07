@@ -30,7 +30,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.authService.isLogin()) {
+      alert('目前已登入，如需註冊新帳號請先登出');
+      this.router.navigate(['/user']);
+    } else {
+    }
+  }
 
   // to test if all the field is filled, otherwise the button can't be push
   filled() {
