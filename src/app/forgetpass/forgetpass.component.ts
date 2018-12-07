@@ -25,6 +25,8 @@ export class ForgetpassComponent implements OnInit {
       console.log(data);
       if (this.erroremail === false) {
         alert('請至填寫信箱收信');
+      } else {
+        alert('信箱錯誤');
       }
 
     }, response => {

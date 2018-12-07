@@ -40,7 +40,11 @@ export class LoginComponent implements OnInit {
       response => {
         console.log(response);
         if (response.error.error !== undefined) {
-          this.errorLogin = true;
+          if (response.error.error == 'Cancel'){
+            alert('帳號已被停權，請聯絡我們以了解狀況');
+          } else {
+            this.errorLogin = true;
+          }
         } else {
           this.errorLogin = false;
         }
