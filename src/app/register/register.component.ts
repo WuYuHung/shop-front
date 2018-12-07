@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     phone: '',
     password: '',
     password_confirmation: '',
-    photo_path: ''
+    photo_path: 'image/user/default.png'
   };
   checkbox = false;
 
