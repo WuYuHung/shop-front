@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
 import { HeaderComponent } from './header/header.component';
 import { BuylistComponent } from './buylist/buylist.component';
+import { EditComponent } from './edit/edit.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,14 @@ const routes: Routes = [
   {
     path: 'header',
     component: HeaderComponent
+  },
+  {
+    path: 'edit',
+    component: EditComponent
+  },
+  {
+    path: 'changepassword',
+    component: ChangePasswordComponent
   }
 ];
 

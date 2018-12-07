@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ShopRateComponent } from './shop-rate/shop-rate.component';
 import { BuylistComponent } from './buylist/buylist.component';
+import { EditComponent } from './edit/edit.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { BuylistComponent } from './buylist/buylist.component';
     LoginComponent,
     ShopRateComponent,
     BuylistComponent,
+    EditComponent,
+    ChangePasswordComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
