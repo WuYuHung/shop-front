@@ -126,18 +126,14 @@ export class PayComponent implements OnInit {
         status: 'pay',
         discount: this.discount,
       };
-      console.log(this.discount);
-      if (this.pay.couponid == null) {
-        this.pay.couponid = null;
+      if (this.pay.coupon_id == null) {
+        this.pay.coupon_id = null;
+        this.pay.discount = this.discount;
       } else {
-        this.discount = this.discount * 0.9;
+        this.pay.discount = this.discount * 0.9;
       }
-      console.log(this.discount);
-      this.pay.discount = this.discount;
-      console.log(this.pay);
 
       this.ShopService.postOrder(this.pay).subscribe(datas => {
-        console.log(datas['order_id']);
 
         for (let i = 0; i < this.cartList.length; i++) {
           let products = {
