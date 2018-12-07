@@ -7,11 +7,11 @@ import { TouchSequence } from 'selenium-webdriver';
   styleUrls: ['./buylist.component.css']
 })
 export class BuylistComponent implements OnInit {
-
   order_id: any;
   finishlist: any;
   sendlist: any;
   paylist: any;
+
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
@@ -27,7 +27,5 @@ export class BuylistComponent implements OnInit {
       this.finishlist = data;
       console.log(data);
     });
-
   }
-
 }
