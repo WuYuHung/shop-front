@@ -78,5 +78,10 @@ export class AuthService {
         headers: headers
       }
     );
+
+  }
+
+  postSubscribe(email) {
+    return this.httpClient.post('http://localhost:8000/api/subscribe', email);
   }
 }

@@ -15,8 +15,8 @@
             <label for="email_subscribe" class="footer-heading">訂閱我們</label>
             <div class="form-group">
               <input type="email" class="form-control py-4" name="email" id="email_subscribe" placeholder="Email"
-                required>
-              <button type="submit" class="btn btn-sm btn-primary" value="Send">SEND</button>
+               [(ngModel)]="email" required>
+              <button type="submit" class="btn btn-sm btn-primary" value="Send" (click)="onSubmit()" [disabled] ="email == null">SEND</button>
             </div>
           </form>
         </div>
