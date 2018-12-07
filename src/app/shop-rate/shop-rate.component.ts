@@ -14,14 +14,14 @@ export class ShopRateComponent implements OnInit {
   ratelist: any;
   totalrate = 0;
   averate: any;
-  user_rate: 10;
+  user_rate = 10;
   reason: any;
   isLogin: any;
   toten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor(private route: ActivatedRoute, private shopService: ShopService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.isLogin = this.authService.isLogin;
+    this.isLogin = this.authService.isLogin();
     this.id = this.route.snapshot.params['kw'];
     this.shopService.getrate(this.id).subscribe(data => {
       this.ratelist = data;

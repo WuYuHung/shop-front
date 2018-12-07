@@ -28,7 +28,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of cartList">
-                  <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                  <td class="product-thumbnail"> <img src="http://localhost:8000/storage/{{item.photo_path}}"
                       alt="Image placeholder" class="img-fluid"></td>
                   <td class="product-name">{{item.name}}</td>
                   <td>{{item.price}}</td>
@@ -122,24 +122,14 @@
               <div class="col-md-12 text-right border-bottom mb-5">
                 <h3 class="text-black h4 text-uppercase">商品總價</h3>
               </div>
-              <div class="row mb-3">
-                <div class="col-md-6">
-                  <span class="text-black">小計</span>
-                </div>
-                <div class="col-md-6 text-right">
-                  <strong class="text-black">{{totalCost() * level2}}</strong>
-                </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <span class="text-black">小計</span>
               </div>
               <div class="col-md-6 text-right">
                 <strong class="text-black">{{totalCost()}}</strong>
               </div>
-              <div class="row mb-5">
-                <div class="col-md-6">
-                  <span class="text-black">總價</span>
-                </div>
-                <div class="col-md-6 text-right">
-                  <strong class="text-black">{{total() * level2}}</strong>
-                </div>
             </div>
             <div class="row mb-3">
               <div class="col-md-6">
@@ -167,4 +157,5 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
