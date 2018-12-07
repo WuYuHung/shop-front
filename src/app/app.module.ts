@@ -22,6 +22,8 @@ import { ShopRateComponent } from './shop-rate/shop-rate.component';
 import { BuylistComponent } from './buylist/buylist.component';
 import { EditComponent } from './edit/edit.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import { ChangepassComponent } from './changepass/changepass.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     BuylistComponent,
     EditComponent,
     ChangePasswordComponent,
+    ForgetpassComponent,
+    ChangepassComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

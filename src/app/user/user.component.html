@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="profile-img">
-          <img src="assets/images/TWK.jpeg" alt="" />
+          <img src="http://localhost:8000/storage/{{photo_path}}" alt="" />
           <div class="file btn btn-lg btn-primary">
             更 改 圖 片
             <a href="javascript:void(0)"><input type="file" name="file" (change)="uploadfile($event)"/></a>
@@ -22,7 +22,6 @@
           <h5 class="proile-rating">Level : <span>一般會員</span></h5>
         </div>
       </div>
-
     </div>
     <div class="row">
       <div class="col-md-4">
@@ -35,6 +34,14 @@
             <li class="nav-item">
               <a class="nav-link active" id="buylist-tab" routerLink="/buylist" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
                 aria-selected="true">購買清單</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="buylist-tab" routerLink="/edit" data-toggle="tab" role="tab" aria-controls="buylist"
+                aria-selected="true">編輯資料</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="buylist-tab" routerLink="/changepw" data-toggle="tab" role="tab" aria-controls="buylist"
+                aria-selected="true">更改密碼</a>
             </li>
           </ul>
         </div>

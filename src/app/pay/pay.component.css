@@ -9,5 +9,9 @@ input.ng-invalid {
     border: 1px solid red;
     background:white;
     padding: 5px;
-    
+
+}
+.errorResponse {
+  color: red;
+  font-size: 20px;
 }

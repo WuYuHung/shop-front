@@ -9,6 +9,18 @@
 
   <div class="site-section">
     <div class="container">
+    <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                  <ul>
+                    <li><a href="javascript:void(0)" (click)="dec()">&lt;</a></li>
+                    <ng-container *ngFor="let n of page_list">
+                      <li [ngClass]="{'active': n == page}"><a href="javascript:void(0)" (click)="change_page(n)">{{ n }}</a></li>
+                    </ng-container>
+                    <li><a href="javascript:void(0)" (click)="asc()">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <br><br>
       <div class="row mb-5">
         <div class="col-md-9 order-2">
           <div class="row">
@@ -35,7 +47,7 @@
                 </figure>
                 <div class="block-4-text p-4">
                   <h3><a href="/shopsingle/{{data.id}}">{{data.name}}</a></h3>
-                  <p class="mb-0">{{data.description}}</p>
+                  <p class="mb-0" style="font size:10px;">{{data.description}}</p>
                   <p class="text-primary font-weight-bold">${{data.price}}</p>
                 </div>
               </div>
@@ -70,10 +82,9 @@
             <h3 class="mb-3 h6 text-uppercase text-black d-block">分類</h3>
             <ul class="list-unstyled mb-0">
               <li class="mb-1"><a href="javascript:void(0)" (click)="click(0)" class="d-flex"><span class="ml-auto">全部商品</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="javascript:void(0)" (click)="click(1)" class="d-flex"><span class="ml-auto">男款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="javascript:void(0)" (click)="click(2)" class="d-flex"><span class="ml-auto">女款</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="javascript:void(0)" (click)="click(3)" class="d-flex"><span class="ml-auto">男童</span> <span class="text-black ml-auto"></span></a></li>
-              <li class="mb-1"><a href="javascript:void(0)" (click)="click(4)" class="d-flex"><span class="ml-auto">女童</span> <span class="text-black ml-auto"></span></a></li>
+              <ng-container *ngFor="let k of cate_list">
+              <li class="mb-1"><a href="javascript:void(0)" (click)="click(k.id)" class="d-flex"><span class="ml-auto">{{ k.name }}</span> <span class="text-black ml-auto"></span></a></li>
+              </ng-container>
             </ul>
           </div>
           <div class="border p-4 rounded mb-4">
@@ -95,6 +106,19 @@
           </div>-->
         </div>
       </div>
+      <div class="row" data-aos="fade-up">
+              <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                  <ul>
+                    <li><a href="javascript:void(0)" (click)="dec()">&lt;</a></li>
+                    <ng-container *ngFor="let n of page_list">
+                      <li [ngClass]="{'active': n == page}"><a href="javascript:void(0)" (click)="change_page(n)">{{ n }}</a></li>
+                    </ng-container>
+                    <li><a href="javascript:void(0)" (click)="asc()">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
     </div>
   </div>
 </div>
@@ -102,50 +126,19 @@
 <div class="site-section site-blocks-2">
   <div class="container">
     <div class="row">
+      <ng-container *ngFor="let p of cate_list">
       <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-        <a class="block-2-item" (click)="click(1)">
+        <a class="block-2-item" (click)="click(p.id)">
           <figure class="image">
-            <img src="assets/images/men.jpg" alt="" class="img-fluid">
+            <img src="http://localhost:8000/storage/{{p.photo_path}}" alt="" class="img-fluid">
           </figure>
           <div class="text">
             <span class="text-uppercase">Collections</span>
-            <h3>男鞋</h3>
+            <h3>{{ p.name }}</h3>
           </div>
         </a>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-        <a class="block-2-item" (click)="click(2)">
-          <figure class="image">
-            <img src="assets/images/women.jpg" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <span class="text-uppercase">Collections</span>
-            <h3>女鞋</h3>
-          </div>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-        <a class="block-2-item" (click)="click(3)">
-          <figure class="image">
-            <img src="assets/images/chia-ming.png" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <span class="text-uppercase">Collections</span>
-            <h3>男童</h3>
-          </div>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-        <a class="block-2-item" (click)="click(4)">
-          <figure class="image">
-            <img src="assets/images/children.jpg" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <span class="text-uppercase">Collections</span>
-            <h3>女童</h3>
-          </div>
-        </a>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>

@@ -16,6 +16,19 @@ export class AuthService {
     console.log(user);
     return this.httpClient.post('http://localhost:8000/api/login', user);
   }
+  change_photo(exten, base64) {
+    const tokenParse = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${tokenParse}`
+    });
+    console.log(headers);
+    return this.httpClient.post('http://localhost:8000/api/user/photo', {
+      extension: exten,
+      image: base64
+    }, {
+      headers: headers
+    });
+  }
 
   user_info() {
     const tokenParse = localStorage.getItem('token');

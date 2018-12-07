@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from './poducts';
+import { Router } from '@angular/router';
 import { ShopService } from '../shop.service';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { CouponService } from '../coupon.service';
+
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
@@ -22,13 +24,12 @@ export class PayComponent implements OnInit {
   deliver: any;
   Total: any;
   pay: any;
+  coupon: any;
+  couponlist: any;
+  errorpay = false;
 
   cartList: any;
-  constructor(
-    private ShopService: ShopService,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private router: Router, private ShopService: ShopService, private authService: AuthService, private couponService: CouponService) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -49,6 +50,10 @@ export class PayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.couponService.getcoupon().subscribe(data => {
+      this.couponlist = data;
+      console.log(data);
+    });
     if (this.authService.isLogin()) {
     } else {
       alert('進入結帳頁面前請先登入');
@@ -66,6 +71,9 @@ export class PayComponent implements OnInit {
     ) {
       return 1;
     } else return 0;
+  }
+  ChangingCoupon(event) {
+    this.couponid = event.target.value;
   }
 
   Pay() {
@@ -126,10 +134,10 @@ export class PayComponent implements OnInit {
             console.log(log);
           });
         }
-      });
-    });
-    let delete_keys = [];
-    for (let i = 0, len = localStorage.length; i < len; i++) {
+        let delete_keys = [];
+        if (!this.errorpay) {
+          window.location.href = '/thankyou';
+          for (let i = 0, len = localStorage.length; i < len; i++) {
       if (localStorage.key(i) != 'token') {
         delete_keys.push(localStorage.key(i));
       }
@@ -138,4 +146,16 @@ export class PayComponent implements OnInit {
         localStorage.removeItem(delete_keys[i]);
       }
     }
+        }
+      },
+        response => {
+          console.log(response);
+          if (response.error.error != null) {
+            this.errorpay = true;
+          } else {
+            this.errorpay = false;
+          }
+        });
+    }
+    );
   }

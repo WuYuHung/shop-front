@@ -47,8 +47,9 @@
             </select><br><br>
             <label for="c_companyname" class="text-black">評分原由 </label><br>
                 <textarea type="text" cols="30" rows="7" class="form-control" id="c_companyname" name="c_companyname" [(ngModel)]="reason">評分原由</textarea>
-              <div class="form-group"><br><br>
-                         <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="submit()" [disabled]="!isLogin">送出</button>
+              <div class="form-group"><br>
+              <h6 *ngIf="isLogin == null" style="color:red">✗請登入以進行評價</h6>
+                         <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="submit()" [disabled]="isLogin == null">送出</button>
                       </div>
               </div>
           </div>

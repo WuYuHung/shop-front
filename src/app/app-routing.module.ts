@@ -16,8 +16,18 @@ import { HeaderComponent } from './header/header.component';
 import { BuylistComponent } from './buylist/buylist.component';
 import { EditComponent } from './edit/edit.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import { ChangepassComponent } from './changepass/changepass.component';
 
 const routes: Routes = [
+  {
+    path: 'changepass/:token',
+    component: ChangepassComponent
+  },
+  {
+    path: 'forgetpass',
+    component: ForgetpassComponent
+  },
   {
     path: 'buylist',
     component: BuylistComponent
@@ -88,4 +98,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
