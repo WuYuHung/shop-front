@@ -40,6 +40,7 @@ export class ShopService {
   }
   postnewpass(data) {
     return this.httpClient.post('http://localhost:8000/api/password/reset', data);
+  }
   getrate(id) {
     return this.httpClient.get(`http://localhost:8000/api/product/${id}/ratings`);
   }
