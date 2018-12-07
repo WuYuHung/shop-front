@@ -126,6 +126,7 @@ export class PayComponent implements OnInit {
         status: 'pay',
         discount: this.discount,
       };
+      console.log(this.discount);
       if (this.pay.couponid == null) {
         this.pay.couponid = null;
       } else {
@@ -133,7 +134,7 @@ export class PayComponent implements OnInit {
       }
       console.log(this.discount);
       console.log(this.pay);
-
+      alert('fuck');
       this.ShopService.postOrder(this.pay).subscribe(datas => {
         console.log(datas['order_id']);
 
