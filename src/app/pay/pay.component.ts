@@ -115,7 +115,7 @@ export class PayComponent implements OnInit {
     this.authService.user_info().subscribe(data => {
       this.pay = {
         user_id: data['id'],
-        couponid: this.couponid,
+        coupon_id: this.couponid,
         amount: this.Total(),
         first_name: this.c_fname,
         last_name: this.c_lname,
@@ -133,8 +133,9 @@ export class PayComponent implements OnInit {
         this.discount = this.discount * 0.9;
       }
       console.log(this.discount);
+      this.pay.discount = this.discount;
       console.log(this.pay);
-      alert('fuck');
+
       this.ShopService.postOrder(this.pay).subscribe(datas => {
         console.log(datas['order_id']);
 
