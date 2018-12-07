@@ -7,11 +7,11 @@ import { OrderService } from '../order.service';
   styleUrls: ['./buylist.component.css']
 })
 export class BuylistComponent implements OnInit {
-
   order_id: any;
   finishlist: any;
   sendlist: any;
   paylist: any;
+
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
@@ -25,7 +25,5 @@ export class BuylistComponent implements OnInit {
     this.orderService.buy2('finish').subscribe(data => {
       this.finishlist = data;
     });
-
   }
-
 }

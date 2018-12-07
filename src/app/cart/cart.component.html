@@ -7,6 +7,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="site-section">
     <div class="container">
@@ -44,7 +45,7 @@
                   <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
                 </tr>
 
-                <!--<td class="product-thumbnail">
+              <!--<td class="product-thumbnail">
                       <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
@@ -92,36 +93,35 @@
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                 -->
-              </tbody>
-            </table>
-          </div>
-        </form>
-      </div>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
 
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row mb-5">
-            <!--  <div class="col-md-6 mb-3 mb-md-0">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row mb-5">
+          <!--  <div class="col-md-6 mb-3 mb-md-0">
                 <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
               </div>
             -->
-            <div class="col-md-6">
-              <button class="btn btn-primary btn-sm btn-block" routerLink="/shop">繼續購物</button>
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-outline-primary btn-sm btn-block" (click)="clearCart()">清空購物車</button>
-            </div>
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-sm btn-block" routerLink="/shop">繼續購物</button>
           </div>
-
+          <div class="col-md-6">
+            <button class="btn btn-outline-primary btn-sm btn-block" (click)="clearCart()">清空購物車</button>
+          </div>
         </div>
-        <div class="col-md-6 pl-5">
-          <div class="row justify-content-end">
-            <div class="col-md-7">
-              <div class="row">
-                <div class="col-md-12 text-right border-bottom mb-5">
-                  <h3 class="text-black h4 text-uppercase">商品總價</h3>
-                </div>
+
+      </div>
+      <div class="col-md-6 pl-5">
+        <div class="row justify-content-end">
+          <div class="col-md-7">
+            <div class="row">
+              <div class="col-md-12 text-right border-bottom mb-5">
+                <h3 class="text-black h4 text-uppercase">商品總價</h3>
               </div>
               <div class="row mb-3">
                 <div class="col-md-6">
@@ -131,13 +131,8 @@
                   <strong class="text-black">{{totalCost() * level2}}</strong>
                 </div>
               </div>
-              <div class="row mb-3">
-                <div class="col-md-6">
-                  <span class="text-black">手續費</span>
-                </div>
-                <div class="col-md-6 text-right">
-                  <strong class="text-black">{{deliver()}} (+</strong>
-                </div>
+              <div class="col-md-6 text-right">
+                <strong class="text-black">{{totalCost()}}</strong>
               </div>
               <div class="row mb-5">
                 <div class="col-md-6">
@@ -146,12 +141,27 @@
                 <div class="col-md-6 text-right">
                   <strong class="text-black">{{total() * level2}}</strong>
                 </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <span class="text-black">手續費</span>
               </div>
+              <div class="col-md-6 text-right">
+                <strong class="text-black">{{deliver()}} (+</strong>
+              </div>
+            </div>
+            <div class="row mb-5">
+              <div class="col-md-6">
+                <span class="text-black">總價</span>
+              </div>
+              <div class="col-md-6 text-right">
+                <strong class="text-black">{{total()}}</strong>
+              </div>
+            </div>
 
-              <div class="row">
-                <div class="col-md-12">
-                  <button class="btn btn-primary btn-lg py-3 btn-block" (click)="checkout()">結帳</button>
-                </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-primary btn-lg py-3 btn-block" (click)="checkout()">結帳</button>
               </div>
             </div>
           </div>

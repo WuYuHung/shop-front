@@ -3,15 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from './poducts';
 import { ShopService } from '../shop.service';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
   styleUrls: ['./pay.component.css']
-
 })
-
-
-
 export class PayComponent implements OnInit {
   c_email_address: string;
   c_fname: string;
@@ -26,9 +23,12 @@ export class PayComponent implements OnInit {
   Total: any;
   pay: any;
 
-
   cartList: any;
-  constructor(private ShopService: ShopService, private authService: AuthService) {
+  constructor(
+    private ShopService: ShopService,
+    private authService: AuthService,
+    private router: Router
+  ) {
     let json = '[';
     let minus = 1;
     for (let i = 0, len = localStorage.length; i < len; i++) {
@@ -46,40 +46,44 @@ export class PayComponent implements OnInit {
     }
     json += ']';
     this.cartList = JSON.parse(json);
-
   }
 
   ngOnInit() {
+    if (this.authService.isLogin()) {
+    } else {
+      alert('進入結帳頁面前請先登入');
+      this.router.navigate(['/login']);
+    }
   }
 
   check() {
-
-    if (this.c_email_address.includes('@') && this.c_fname != null && this.c_lname != null && this.c_address != null && this.c_phone.length() === 10) {
+    if (
+      this.c_email_address.includes('@') &&
+      this.c_fname != null &&
+      this.c_lname != null &&
+      this.c_address != null &&
+      this.c_phone.length() === 10
+    ) {
       return 1;
-    }
-    else return 0;
-
-
-
-
-
+    } else return 0;
   }
 
   Pay() {
-
     for (let i = 0; i < this.cartList.length; i++) {
       this.cartList[i]['paid'] = true;
       console.log(this.cartList[i].id);
-      localStorage.setItem(localStorage.key(i), JSON.stringify(this.cartList[i]));
+      localStorage.setItem(
+        localStorage.key(i),
+        JSON.stringify(this.cartList[i])
+      );
     }
 
-
-    this.totalCost = function (): number {
+    this.totalCost = function(): number {
       let total = 0;
-      this.cartList.forEach(t => total += t.price * t.quantity);
+      this.cartList.forEach(t => (total += t.price * t.quantity));
       return total;
     };
-    this.deliver = function (): number {
+    this.deliver = function(): number {
       let total = 0;
       let tmp = this.totalCost();
       if (tmp <= 10000) {
@@ -87,7 +91,7 @@ export class PayComponent implements OnInit {
       }
       return total;
     };
-    this.Total = function (): number {
+    this.Total = function(): number {
       return this.totalCost() + this.deliver();
     };
 
@@ -110,7 +114,6 @@ export class PayComponent implements OnInit {
       console.log(this.pay);
 
       this.ShopService.postOrder(this.pay).subscribe(datas => {
-
         console.log(datas['order_id']);
 
         for (let i = 0; i < this.cartList.length; i++) {
@@ -124,8 +127,7 @@ export class PayComponent implements OnInit {
           });
         }
       });
-    }
-    );
+    });
     let delete_keys = [];
     for (let i = 0, len = localStorage.length; i < len; i++) {
       if (localStorage.key(i) != 'token') {
@@ -136,5 +138,4 @@ export class PayComponent implements OnInit {
         localStorage.removeItem(delete_keys[i]);
       }
     }
-
   }
