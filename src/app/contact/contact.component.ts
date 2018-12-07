@@ -18,11 +18,14 @@ export class ContactComponent implements OnInit {
 
   user_message = {
     email: 'g2esportsshoes@gmail.com',
-    subject:
-      '來自' +
-      this.contact_message.email +
-      '的訊息',
-    data: this.contact_message.data
+    subject: '',
+    data: ''
+  };
+
+  send_user_message = {
+    email: '',
+    subject: '感謝您寶貴的意見',
+    data: '感謝您的聯絡，我們將會盡速回覆您！'
   };
 
   constructor(private router: Router, private authService: AuthService) {}
@@ -31,16 +34,17 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     console.log(this.contact_message);
-    this.user_message.subject =
-      '來自' +
-    this.contact_message.email +
-      '的訊息 : ' +
-      this.contact_message.subject;
-    this.user_message.data = this.contact_message.data;
+
+    this.send_user_message.email = this.contact_message.email;
+
+    this.user_message.subject = 'E2 Esport 管理平台有新的意見! 主旨 : ' + this.contact_message.subject;
+    this.user_message.data = '來自'
+    + this.contact_message.email
+    + ' ( ' + this.contact_message.lastname + ' ' + this.contact_message.firstname + ' ) : '
+    + this.contact_message.data;
 
     console.log(this.user_message);
-    this.contact_message.data = '感謝您的聯絡，我們將會盡速回覆您！';
-    this.authService.contact(this.contact_message).subscribe((data: any) => {
+    this.authService.contact(this.send_user_message).subscribe((data: any) => {
       console.log(data);
       if (data.success) {
         // contact success : navigate to 首頁
