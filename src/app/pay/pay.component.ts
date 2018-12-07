@@ -128,10 +128,14 @@ export class PayComponent implements OnInit {
         }
       });
     });
+    let delete_keys = [];
     for (let i = 0, len = localStorage.length; i < len; i++) {
       if (localStorage.key(i) != 'token') {
-        localStorage.removeItem(localStorage.key(i));
+        delete_keys.push(localStorage.key(i));
+      }
+    }
+    for (let i = 0, len = delete_keys.length; i < len; i++) {
+        localStorage.removeItem(delete_keys[i]);
       }
     }
   }
-}

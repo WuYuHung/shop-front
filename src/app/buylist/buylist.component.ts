@@ -11,7 +11,8 @@ export class BuylistComponent implements OnInit {
   finishlist: any;
   sendlist: any;
   paylist: any;
-  constructor(private orderService: OrderService) {}
+
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.orderService.buy2('pay').subscribe(data => {
