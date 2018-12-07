@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         if (data.token) {
           localStorage.setItem('token', data.token);
           window.history.back();
+          location.reload();
         } else {
           alert('fail');
         }

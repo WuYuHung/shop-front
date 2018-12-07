@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
-import { TouchSequence } from 'selenium-webdriver';
+
 @Component({
   selector: 'app-buylist',
   templateUrl: './buylist.component.html',
@@ -21,11 +21,9 @@ export class BuylistComponent implements OnInit {
     });
     this.orderService.buy2('stock').subscribe(data => {
       this.sendlist = data;
-      console.log(data);
     });
     this.orderService.buy2('finish').subscribe(data => {
       this.finishlist = data;
-      console.log(data);
     });
 
   }

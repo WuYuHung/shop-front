@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
   getAll() {
     return this.httpClient.get('http://localhost:8000/api/products');
   }
@@ -27,5 +28,23 @@ export class ShopService {
   }
   getbuylist(status) {
     return this.httpClient.get(`http://localhost:8000/api/user/orders/${status}/products`);
+  }
+  getrate(id) {
+    return this.httpClient.get(`http://localhost:8000/api/product/${id}/ratings`);
+  }
+  postrate(rating, product_id, description) {
+    const tokenParse = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${tokenParse}`
+    });
+    console.log(headers);
+    return this.httpClient.post('http://localhost:8000/api/user/rating', {
+      description: description,
+      product_id: product_id,
+      rating: rating,
+      is_buy: 1},
+      {
+      headers: headers
+    });
   }
 }

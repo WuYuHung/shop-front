@@ -12,6 +12,8 @@ export class CartComponent implements OnInit {
   public products: number;
   cartList: any;
   couponid: any;
+  level = 0;
+  level2 = 0.75;
   get isLogin() {
     return this.authService.isLogin();
   }

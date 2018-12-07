@@ -17,7 +17,7 @@ import { BuylistComponent } from './buylist/buylist.component';
 
 const routes: Routes = [
   {
-    path: 'buylist/:id',
+    path: 'buylist',
     component: BuylistComponent
   },
   {

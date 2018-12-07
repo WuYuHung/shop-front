@@ -3,7 +3,7 @@
     <div class="bg-light py-3">
        <div class="container">
           <div class="center">
-             <div class="col-md-12 mb-0"><a href="index.html">首頁</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">購物車</a>
+             <div class="col-md-12 mb-0"><a href="#">首頁</a> <span class="mx-2 mb-0">/</span> <a routerLink='/cart'>購物車</a>
                 <span class="mx-2 mb-0">/</span> <strong class="text-black">結帳</strong>
              </div>
           </div>
@@ -86,7 +86,7 @@
                          <label class="custom-control-label" for="private">同意本公司存取您所填寫之個人資料</label>
                          <div class="invalid-feedback">必須勾選</div>
                       </div>
-                      
+
                       <div class="form-group">
                          <button class="btn btn-primary btn-lg py-3 btn-block" type="submit" (click)="Pay()" [disabled]="checkkk == false ||checkkk == null||c_email_address==null ||c_lname == null||c_address == null||c_phone == null"
                          routerLink="/thankyou">結帳</button>
@@ -116,7 +116,7 @@
                       </tr>
                    </tbody>
                 </table>
-                
+
           </div>
        </div>
     </div>
