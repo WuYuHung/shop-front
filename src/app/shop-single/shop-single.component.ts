@@ -24,6 +24,7 @@ export class ShopSingleComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.ShopService.getrate(this.id).subscribe(data => {
+      console.log(this.id);
       this.ratelist = data;
       let totalrate = 0;
       for (let i = 0; i < this.ratelist.length; i++) {

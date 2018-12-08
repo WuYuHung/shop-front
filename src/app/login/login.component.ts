@@ -30,8 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if (data.token) {
           localStorage.setItem('token', data.token);
-          window.history.back();
-          location.reload();
+          window.location.href = '/';
         } else {
           alert('fail');
         }

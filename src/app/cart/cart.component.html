@@ -31,8 +31,8 @@
                 <td class="product-thumbnail"> <img src="http://localhost:8000/storage/{{item.photo_path}}" alt="Image placeholder"
                     class="img-fluid"></td>
                 <td class="product-name">{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.price-0 * discount-0/100}}</td>
+                <td>{{(item.price-0) }}</td>
+                <td>{{(item.price-0) * (discount-0)/100}}</td>
                 <td>
                   <button (click)="reduceOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">-</button>
                   <input class="col-md-3" style="text-align: center" type="text" [(ngModel)]="item.quantity"
@@ -40,7 +40,7 @@
                   <button (click)="addOne(item.id)" class="btn btn-outline-primary js-btn-plus" type="button">+</button>
                 </td>
 
-                <td>{{item.quantity-0 * item.price-0 * discount-0 /100}}</td>
+                <td>{{(item.quantity-0) * (item.price-0) * (discount-0) /100}}</td>
                 <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
               </tr>
             </tbody>
