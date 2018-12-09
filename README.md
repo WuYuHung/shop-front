@@ -31,6 +31,7 @@ than open http://localhost:4200 on your browser.
 - 用戶頁面
 - 訂單管理
 - 優惠券
+- 結帳
 - 修改密碼
 - 忘記密碼
 ```
