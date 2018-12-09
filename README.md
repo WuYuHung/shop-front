@@ -1,27 +1,32 @@
-# ShopFront
+## 工作分配
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
+**吳昱宏**
+```sh
+- 專案總管理
+- 協助功能開發
+- 專案git管理
+- 打模板
+- 首頁
+- 購物車
+- header、footer
+- 商品相關功能
+```
 
-## Development server
+**謝豐檍**
+```sh
+- 用戶頁面
+- 訂單管理
+- 優惠券
+- 修改密碼
+- 忘記密碼
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**劉岳奇**
+```sh
+- 所有權限相關功能
+- 客服服務
+- 登入
+- 註冊
+- Web Route
+- 發送郵件
+```
