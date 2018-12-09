@@ -57,10 +57,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.user); // test : show the user input
     this.authService.register(this.user).subscribe(
       (data: any) => {
-        console.log(data);
         if (data.success) {
           // register success : navigate to login
           if (this.authService.isLogin()) {
@@ -73,7 +71,6 @@ export class RegisterComponent implements OnInit {
         }
       },
       response => {
-        console.log(response); // test : show the http response
         // name error response
         if (response === 0) {
           alert('後端未開啟');
@@ -120,8 +117,6 @@ export class RegisterComponent implements OnInit {
         } else {
           this.password_confirmationError = '';
         }
-
-        // alert(response.error.message);
       }
     );
   }

@@ -27,19 +27,16 @@ export class LoginComponent implements OnInit {
     // 帳號密碼的檢查
     this.authService.login(this.user).subscribe(
       (data: any) => {
-        console.log(data);
         if (data.token) {
           localStorage.setItem('token', data.token);
           window.location.href = '/';
         } else {
           alert('fail');
         }
-        // 之後可以再加register的400錯誤
       },
       response => {
-        console.log(response);
         if (response.error.error !== undefined) {
-          if (response.error.error == 'Cancel'){
+          if (response.error.error == 'Cancel') {
             alert('帳號已被停權，請聯絡我們以了解狀況');
           } else {
             this.errorLogin = true;

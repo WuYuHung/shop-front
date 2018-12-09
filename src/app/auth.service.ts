@@ -13,7 +13,6 @@ export class AuthService {
   }
 
   login(user) {
-    console.log(user);
     return this.httpClient.post('http://localhost:8000/api/login', user);
   }
   change_photo(exten, base64) {
@@ -21,13 +20,16 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${tokenParse}`
     });
-    console.log(headers);
-    return this.httpClient.post('http://localhost:8000/api/user/photo', {
-      extension: exten,
-      image: base64
-    }, {
-      headers: headers
-    });
+    return this.httpClient.post(
+      'http://localhost:8000/api/user/photo',
+      {
+        extension: exten,
+        image: base64
+      },
+      {
+        headers: headers
+      }
+    );
   }
 
   user_info() {
@@ -35,7 +37,6 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${tokenParse}`
     });
-    console.log(headers);
     return this.httpClient.get('http://localhost:8000/api/user', {
       headers: headers
     });
@@ -59,7 +60,6 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${tokenParse}`
     });
-    console.log(headers);
     return this.httpClient.post('http://localhost:8000/api/user', user, {
       headers: headers
     });
@@ -70,7 +70,6 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${tokenParse}`
     });
-    console.log(headers);
     return this.httpClient.post(
       'http://localhost:8000/api/user/password',
       user,
@@ -78,7 +77,6 @@ export class AuthService {
         headers: headers
       }
     );
-
   }
 
   postSubscribe(email) {

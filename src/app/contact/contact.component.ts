@@ -33,24 +33,26 @@ export class ContactComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log(this.contact_message);
-
     this.send_user_message.email = this.contact_message.email;
 
-    this.user_message.subject = 'E2 Esport 管理平台有新的意見! 主旨 : ' + this.contact_message.subject;
-    this.user_message.data = '來自'
-    + this.contact_message.email
-    + ' ( ' + this.contact_message.lastname + ' ' + this.contact_message.firstname + ' ) : '
-    + this.contact_message.data;
+    this.user_message.subject =
+      'E2 Esport 管理平台有新的意見! 主旨 : ' + this.contact_message.subject;
+    this.user_message.data =
+      '來自' +
+      this.contact_message.email +
+      ' ( ' +
+      this.contact_message.lastname +
+      ' ' +
+      this.contact_message.firstname +
+      ' ) : ' +
+      this.contact_message.data;
 
-    console.log(this.user_message);
     this.authService.contact(this.send_user_message).subscribe((data: any) => {
-      console.log(data);
       if (data.success) {
         // contact success : navigate to 首頁
-        this.authService.contact(this.user_message).subscribe((datas: any) => {
-          console.log(datas);
-        });
+        this.authService
+          .contact(this.user_message)
+          .subscribe((datas: any) => {});
         alert('感謝您的意見');
         this.router.navigate(['/']);
       } else {

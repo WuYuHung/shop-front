@@ -41,13 +41,10 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.change);
     this.authService.change(this.change).subscribe(
       (data: any) => {
-        console.log(data);
         if (data['error'] !== undefined) {
           this.passwordError = data['error'];
-          console.log(this.passwordError);
         } else {
           this.passwordError = '';
           alert('以更新密碼');
@@ -55,7 +52,6 @@ export class ChangePasswordComponent implements OnInit {
         }
       },
       response => {
-        console.log(response); // test : show the http response
         // name error response
         if (response === 0) {
           alert('後端未開啟');

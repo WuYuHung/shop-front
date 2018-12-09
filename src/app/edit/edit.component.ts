@@ -30,13 +30,11 @@ export class EditComponent implements OnInit {
     }
 
     this.authService.user_info().subscribe(data => {
-      console.log(data);
       this.user.name = data['name'];
       this.user.birthdate = data['birthdate'];
       this.user.address = data['address'];
       this.user.phone = data['phone'];
       this.user.address = data['address'];
-      console.log(this.user);
     });
   }
   filled() {
@@ -53,15 +51,12 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.user); // test : show the user input
     this.authService.edit(this.user).subscribe(
       (data: any) => {
-        console.log(data);
         alert('以更新資料');
         this.router.navigate(['/user']);
       },
       response => {
-        console.log(response); // test : show the http response
         // name error response
         if (response === 0) {
           alert('後端未開啟');
