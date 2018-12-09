@@ -3,240 +3,230 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <div class="container emp-profile">
-  <form method="post">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-img">
-          <img src="http://localhost:8000/storage/{{photo_path}}" alt="" />
-          <div class="file btn btn-lg btn-primary">
-            更 改 圖 片
-            <a href="javascript:void(0)"><input type="file" name="file" (change)="uploadfile($event)"/></a>
-          </div>
-        </div>
+   <form method="post">
+      <div class="row">
+         <div class="col-md-4">
+            <div class="profile-img">
+               <img src="http://localhost:8000/storage/{{photo_path}}" alt="" />
+               <div class="file btn btn-lg btn-primary">
+                  更 改 圖 片
+                  <a href="javascript:void(0)"><input type="file" name="file" (change)="uploadfile($event)"/></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="profile-head">
+               <h5>
+                  {{name}}
+               </h5>
+               <h5 class="proile-rating">Level : <span>{{ isvip }}</span></h5>
+            </div>
+         </div>
       </div>
-      <div class="col-md-6">
-        <div class="profile-head">
-          <h5>
-            {{name}}
-          </h5>
-          <h5 class="proile-rating">Level : <span>{{ isvip }}</span></h5>
-        </div>
+      <div class="row">
+         <div class="col-md-4">
+            <div class="profile-work">
+               <ul class="nav flex-column" id="myTab" role="tablist">
+                  <li class="nav-item">
+                     <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account"
+                        aria-selected="false">我的帳戶</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" id="buylist-tab" routerLink="/buylist" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
+                        aria-selected="true">購買清單</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" id="buylist-tab" routerLink="/edit" data-toggle="tab" role="tab" aria-controls="buylist"
+                        aria-selected="true">編輯資料</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" id="buylist-tab" routerLink="/changepassword" data-toggle="tab" role="tab" aria-controls="buylist"
+                        aria-selected="true">更改密碼</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="col-md-8">
+            <div class="tab-content profile-tab" id="myTabContent">
+               <div class="row">
+                  <div class="col-md-6">
+                     <label>Address</label>
+                  </div>
+                  <div class="col-md-6">
+                     <p>{{address}}</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label>Name</label>
+                  </div>
+                  <div class="col-md-6">
+                     <p>{{name}}</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label>Email</label>
+                  </div>
+                  <div class="col-md-6">
+                     <p>{{email}}</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label>Phone</label>
+                  </div>
+                  <div class="col-md-6">
+                     <p>{{phone}}</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label>Birthday</label>
+                  </div>
+                  <div class="col-md-6">
+                     <p>{{birthdate}}</p>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                  <div class="row">
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="coupon" role="tabpanel" aria-labelledby="coupon-tab">
+                  <div class="row">
+                     <div class="col-md-8">
+                        <label>Add Promo Code </label>
+                     </div>
+                     <div class="col-md-12">
+                        <input type="text" [(ngModel)]="code" name="fname">
+                        <input type="submit" value="快按" (click)="onclick()">
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-content">
+                  <div class="tab-pane fade in active" id="unpaid" role="tabpanel">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="product-thumbnail">商品圖片</th>
+                              <th class="product-name">商品名稱</th>
+                              <th class="product-price">價格</th>
+                              <th class="product-quantity">數量</th>
+                              <th class="product-total">總價</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let item of cartList">
+                              <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                                 alt="Image placeholder" class="img-fluid" width="200"></td>
+                              <td class="product-name">{{item.name}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.quantity * item.price}}</td>
+                              <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="tab-pane fade" id="unout" role="tabpanel">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="product-thumbnail">商品圖片</th>
+                              <th class="product-name">商品名稱</th>
+                              <th class="product-price">價格</th>
+                              <th class="product-quantity">數量</th>
+                              <th class="product-total">總價</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let item of cartList">
+                              <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                                 alt="Image placeholder" class="img-fluid" width="200" ㄔㄛ></td>
+                              <td class="product-name">{{item.name}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.quantity * item.price}}</td>
+                              <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="tab-pane fade" id="unget" role="tabpanel" aria-labelledby="unpaid-tab">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="product-thumbnail">商品圖片</th>
+                              <th class="product-name">商品名稱</th>
+                              <th class="product-price">價格</th>
+                              <th class="product-quantity">數量</th>
+                              <th class="product-total">總價</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let item of cartList">
+                              <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                                 alt="Image placeholder" class="img-fluid" width="200"></td>
+                              <td class="product-name">{{item.name}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.quantity * item.price}}</td>
+                              <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="unpaid-tab">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="product-thumbnail">商品圖片</th>
+                              <th class="product-name">商品名稱</th>
+                              <th class="product-price">價格</th>
+                              <th class="product-quantity">數量</th>
+                              <th class="product-total">總價</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let item of cartList">
+                              <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                                 alt="Image placeholder" class="img-fluid" width="200"></td>
+                              <td class="product-name">{{item.name}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.quantity * item.price}}</td>
+                              <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="tab-pane fade" id="cancel" role="tabpanel" aria-labelledby="unpaid-tab">
+                     <table class="table table-bordered">
+                        <thead>
+                           <tr>
+                              <th class="product-thumbnail">商品圖片</th>
+                              <th class="product-name">商品名稱</th>
+                              <th class="product-price">價格</th>
+                              <th class="product-quantity">數量</th>
+                              <th class="product-total">總價</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let item of cartList">
+                              <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
+                                 alt="Image placeholder" class="img-fluid" width="200"></td>
+                              <td class="product-name">{{item.name}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.quantity * item.price}}</td>
+                              <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-work">
-          <ul class="nav flex-column" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account"
-                aria-selected="false">我的帳戶</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" id="buylist-tab" routerLink="/buylist" data-toggle="tab" href="#buylist" role="tab" aria-controls="buylist"
-                aria-selected="true">購買清單</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" id="buylist-tab" routerLink="/edit" data-toggle="tab" role="tab" aria-controls="buylist"
-                aria-selected="true">編輯資料</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" id="buylist-tab" routerLink="/changepassword" data-toggle="tab" role="tab" aria-controls="buylist"
-                aria-selected="true">更改密碼</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
-            <div class="row">
-              <div class="col-md-6">
-                <label>Address</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{address}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Name</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{name}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Email</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{email}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Phone</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{phone}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Birthday</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{birthdate}}</p>
-              </div>
-          </div>
-
-          <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-            <div class="row">
-            </div>
-          </div>
-          <div class="tab-pane fade" id="coupon" role="tabpanel" aria-labelledby="coupon-tab">
-            <div class="row">
-              <div class="col-md-8">
-                <label>Add Promo Code </label>
-              </div>
-              <div class="col-md-12">
-                <input type="text" [(ngModel)]="code" name="fname">
-                <input type="submit" value="快按" (click)="onclick()">
-              </div>
-            </div>
-          </div>
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="unpaid" role="tabpanel">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
-                        alt="Image placeholder" class="img-fluid" width="200"></td>
-                    <td class="product-name">{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.quantity * item.price}}</td>
-                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane fade" id="unout" role="tabpanel">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
-                        alt="Image placeholder" class="img-fluid" width="200" ㄔㄛ></td>
-                    <td class="product-name">{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.quantity * item.price}}</td>
-                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane fade" id="unget" role="tabpanel" aria-labelledby="unpaid-tab">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
-                        alt="Image placeholder" class="img-fluid" width="200"></td>
-                    <td class="product-name">{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.quantity * item.price}}</td>
-                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="unpaid-tab">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
-                        alt="Image placeholder" class="img-fluid" width="200"></td>
-                    <td class="product-name">{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.quantity * item.price}}</td>
-                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane fade" id="cancel" role="tabpanel" aria-labelledby="unpaid-tab">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">商品圖片</th>
-                    <th class="product-name">商品名稱</th>
-                    <th class="product-price">價格</th>
-                    <th class="product-quantity">數量</th>
-                    <th class="product-total">總價</th>
-
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartList">
-                    <td class="product-thumbnail"> <img src="assets/images/shop/{{item.cateories}}/{{item.imagepath}}"
-                        alt="Image placeholder" class="img-fluid" width="200"></td>
-                    <td class="product-name">{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.quantity * item.price}}</td>
-                    <td><button (click)="remove(item.id)" class="btn btn-primary btn-sm">x</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
+   </form>
 </div>
