@@ -6,7 +6,7 @@ Angular 6
 git clone https://github.com/Marzear/shop-front.git
 npm install
 ```
-### Run Server：
+## Run Server
 ```
 npm start
 ```
