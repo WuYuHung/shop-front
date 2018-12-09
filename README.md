@@ -1,5 +1,16 @@
-## 開發環境
+## Framework
 Angular 6
+
+## Project Download
+```
+git clone https://github.com/Marzear/shop-front.git
+npm install
+```
+### Run Server：
+```
+npm start
+```
+than open http://localhost:4200 on your browser.
 
 ## 工作分配
 
