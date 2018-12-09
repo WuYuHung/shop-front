@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
-import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
 import { ShopComponent } from './shop/shop.component';
@@ -32,7 +31,6 @@ import { ChangepassComponent } from './changepass/changepass.component';
     HeaderComponent,
     CartComponent,
     HomeComponent,
-    NewArrivalsComponent,
     ContactComponent,
     UserComponent,
     ShopComponent,
