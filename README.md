@@ -23,6 +23,7 @@ than open http://localhost:4200 on your browser.
 - 首頁
 - 購物車
 - header、footer
+- 使用爬取後端商品資料庫(https://github.com/Marzear/shop-back/blob/master/%E7%88%AC%E5%8F%96%E5%95%86%E5%93%81%E8%B3%87%E6%96%99.py)
 - 商品相關功能
 ```
 
